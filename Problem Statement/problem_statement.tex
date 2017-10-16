@@ -1,0 +1,66 @@
+
+\documentclass{article}
+
+\usepackage[parfill]{parskip} 
+
+
+\usepackage[margin=.75in]{geometry}
+
+\begin{document}
+
+
+
+\centerline{\sc Smart Home Intercom System Problem Description}
+
+\centerline{\sc CS461 - CS Senior Capstone Fall 2017}
+
+\centerline{\sc Glen Anderson}
+
+\vspace{5cm}
+
+
+\begin{abstract}
+
+\noindent A home intercom system allows individuals to communicate with each other between rooms. This system can be made more intelligent by adding cameras, microphones, and functionality that allows users to specify rooms to ring and know where other users are located. Such a system needs to be designed securely as if it was compromised it could leak personal data such as video and audio. To prevent this, a secure design will have to be implemented that will prevent the intercom devices from communicating with the outside world. This system will be implemented with Raspberry Pi 3s as they allow for enough processing power to run the system but are also compact, which will keep the system usable and out of the way. The system will be wall mounted and powered through a wall socket. 
+
+
+\end{abstract}
+
+\newpage
+
+Description of Problem
+\vspace{1cm}
+
+A typical home intercom system allows an individual in one room to broadcast to others with audio and/or video to allow them to communicate with one another, although this definition is broad. This type of home intercom system is seen with the Whole-Home Replacement Intercoms from Home Controls Inc. which allows users to communicate with people in other rooms of the house. Such intercoms can also allow someone to communicate with someone outside of the front door. 
+
+This system goes beyond a simple audio broadcast intercom and allows a user to select specific rooms, see which rooms have people in them, and select between audio and video communication. 
+
+This system has to be secure as it will be streaming audio and video between rooms of a house, so it cannot connect to external WiFi systems. As such, the devices must talk only to each other. The data streaming must also be encrypted, the camera and audio data could potentially be intercepted during transmission. Another security issue could be an unauthorized user gaining physical access to this system and using it to stream video from other rooms in the house. Audio and video should not be stored but instead streamed directly between devices, as storing it could present a security risk in the future. 
+
+Raspberry Pi 3s will be used for the home intercom system to communicate between rooms. This is a good choice of hardware since the rPi3 will allow for easy input/output, communication between systems, and enough processing power to easily handle audio/video streaming. The rPi3s will need a way to get speakers and microphones built into them for this system; the speakers and microphones should not be separate from the main unit. For power, the rPi3s will be plugged into wall sockets with a power adapter that ensures they only receive 5 volts (if not already built in). Optionally, the system could have backup batteries in the event of a power outage so that it could continue to run. 
+
+The final system should be usable for most people (needs to make sense) but the interface does not need to be perfected to the point of passing user studies. The brightness should be adjustable from the rPi3 and use ambient light. In addition to automatically adjusting its own brightness for the environment, the system should turn itself off after being idle. If the system detects someone in the room, it should turn itself back on so that it is ready to be used. For this project, installation is not a problem that needs to be directly addressed in terms of usability so long as it can be powered with a wall socket and mounted at an appropriate height. The system should work out of box, and only need to be initially plugged in to work consistently with no other setup. People in other rooms that are being called from another should have the option to accept or deny the call, and select if they want to answer in an audio only mode (but should default to video). If no one is in view of a camera but the user is fairly certain they are in the house, the system could store the room the person was previously detected in and try ringing to that one. It could also have the option to ring every room for this situation. 
+
+Optionally this system could display calendar appointments, weather, and other useful information and functionality that wouldn’t interfere with the usability of the overall intercom. Since the system cannot be connected to an external network, it should get this information from an input only source (the system should NEVER send any data to these external devices) such as a phone or another rPi3 that is connected to the internet. There is still a security issue here, as the input that it receives could potentially be harmful. 
+
+
+
+\vspace{1cm}
+Proposed Solution
+\vspace{1cm}
+
+rPi3s are easily configured with cameras and have configurable pins for input and output, so setting up speakers and microphones should already be well documented and simple to setup. The largest challenges will be creating this system in a way that is secure and getting the rPi3s to talk to each other over an ad hoc network. There are tools such as BATMAN that can be used to aid in using an ad hoc network, but getting video and audio to stream live in an acceptable quality will be difficult. 
+
+To securely get external data, the rPi3s could use a bluetooth connection to a phone or an rPi3 separate from the intercom system that has internet connection. To ensure audio and video data is transmitted securely between rPi3s within the system, it will need to be encrypted at the sender and decrypted at the receiver. There are a number of common methods and tools to do encryption that would be sufficient for the scope of this project. 
+
+Certain functions will require a higher level of security, and for that reason there will need to be at least 2 types of users: a typical user and an admin level user. The admin level user would be able to look at video from other rooms in the house without necessarily sending/accepting a call, and would be able to configure settings on the device. A regular user should be able to make calls to other rooms but would not be able to access the more secure parts of the system without logging in as an admin. If one device was placed outside, for example on a patio, it should require a user to login as admin before placing a call. For this reason it might be practical to have a setting that allows a user to set a device in some sort of secure mode that always requires admin access. 
+
+In order to detect whether or not a person is in the room (whether or not the system should keep itself on or power off), input from the camera could be used to detect motion. When a person is detected, it could turn itself on and then go to sleep after several minutes of detecting no one. The system has to work in 4-7 rooms, meaning each unit will need the capability to talk to at least 3 others and potentially 1 additional external device.  
+
+
+
+
+
+
+
+\end{document}
