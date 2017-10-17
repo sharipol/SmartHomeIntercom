@@ -58,7 +58,26 @@ Certain functions will require a higher level of security, and for that reason t
 In order to detect whether or not a person is in the room (whether or not the system should keep itself on or power off), input from the camera could be used to detect motion. When a person is detected, it could turn itself on and then go to sleep after several minutes of detecting no one. The system has to work in 4-7 rooms, meaning each unit will need the capability to talk to at least 3 others and potentially 1 additional external device.  
 
 
+\vspace{1cm}
 
+Performance Metrics
+
+\vspace{1cm}
+
+The following metrics will be used to track the progress of the project and to determine when it is reasonably complete:
+
+\begin{itemize}
+
+\item Users will be able to place and recieve calls that use audio and/or video between at least 4 devices
+\item The system must be able to be run out-of-box, that is no complicated installation is required
+\item The user interface needs to be reasonably usable, most people should be able to use it intuitively
+\item The system must power itself on when it detects a person in the room
+\item Two types of users, admin and guest, need to be enforced: Guest can recieve calls from any room and request to call other rooms, Admin has all guest privileges but does not need permission to place a call and can view video feed from any device 
+\item Even if intercepted between devices, data should be encrypted so that it cannot be used
+\item There should be no direct connection to external networks such as WiFi
+
+
+\end{itemize}
 
 
 
