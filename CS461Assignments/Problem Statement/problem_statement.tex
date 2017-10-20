@@ -1,83 +1,118 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
 
-\documentclass{article}
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
 
-\usepackage[parfill]{parskip} 
+% 1. Fill in these details
+\def \CapstoneTeamName{		Team 25}
+\def \CapstoneTeamNumber{		25}
+\def \GroupMemberOne{			Lazar Sharipoff}
+\def \GroupMemberTwo{			Jordan Davis}
+\def \GroupMemberThree{			Glen Anderson}
+\def \CapstoneProjectName{		Smart Home Intercom System}
+\def \CapstoneSponsorCompany{	Oregon State EECS}
+\def \CapstoneSponsorPerson{		Kevin D McGrath}
 
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		Problem Statement
+				%Requirements Document
+				%Technology Review
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+%\renewcommand{\NameSigPair}[1]{#1}
 
-\usepackage[margin=.75in]{geometry}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
-
-
-\centerline{\sc Smart Home Intercom System Problem Description}
-
-\centerline{\sc CS461 - CS Senior Capstone Fall 2017}
-
-\centerline{\sc Glen Anderson}
-
-\vspace{5cm}
-
-
-\begin{abstract}
-
-\noindent A home intercom system allows individuals to communicate with each other between rooms. This system can be made more intelligent by adding cameras, microphones, and functionality that allows users to specify rooms to ring and know where other users are located. Such a system needs to be designed securely as if it was compromised it could leak personal data such as video and audio. To prevent this, a secure design will have to be implemented that will prevent the intercom devices from communicating with the outside world. This system will be implemented with Raspberry Pi 3s as they allow for enough processing power to run the system but are also compact, which will keep the system usable and out of the way. The system will be wall mounted and powered through a wall socket. 
-
-
-\end{abstract}
-
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+    	\includegraphics[height=4cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\large Prepared for}\par
+            \Huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            %\CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+                \NameSigPair{\GroupMemberTwo}\par
+                \NameSigPair{\GroupMemberThree}\par
+            }
+            \vspace{20pt}
+        }
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	A home intercom system allows individuals to communicate with each other between rooms. This system can be made more intelligent by adding cameras, microphones and functionality that allows users to specify rooms to page and know where other users are located. This system will be implemented with Raspberry Pi 3 devices as they allow for enough processing power to run the system but are also compact, which will keep the system usable and out of the way. The resulting system should be able to work out of the box and allow for full user functionality.
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
 \newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
 
-Description of Problem
-\vspace{1cm}
+% 8. now you write!
+\section{Problem Description}
+Communication in homes is commonly done by shouting from one room to another or walking from room to room. A step forward from that was the implementation of intercommunicating telephones where one could place a call to other rooms with receivers. Modern times updated that to allow for a paging system where someone can press a call button and it would broadcast to all available receivers within a household. This method of all or nothing communication simply creates noise pollution throughout a household, interrupting everyone who has nothing to do with what is going on over the intercom. A smart home intercom system would allow for advanced technologies and products to be integrated together and prevent undesired noise pollution with directed paging. Installation of previous iterations of intercom systems has always been a hassle. Running wires and power lines between units that are desired to be connected costs time and money. Even adding a unit into existing installations might require a couple hours fishing lines through a room. A smart system could integrate with itself wirelessly, only requiring to be plugged into power. Beyond that, there would be few limitations on adding more units. Ultimately communication within a home is dated and very little has been done to bring it into the digital age.
 
-A typical home intercom system allows an individual in one room to broadcast to others with audio and/or video to allow them to communicate with one another, although this definition is broad. This type of home intercom system is seen with the Whole-Home Replacement Intercoms from Home Controls Inc. which allows users to communicate with people in other rooms of the house. Such intercoms can also allow someone to communicate with someone outside of the front door. 
-
-This system goes beyond a simple audio broadcast intercom and allows a user to select specific rooms, see which rooms have people in them, and select between audio and video communication. 
-
-This system has to be secure as it will be streaming audio and video between rooms of a house, so it cannot connect to external WiFi systems. As such, the devices must talk only to each other. The data streaming must also be encrypted, the camera and audio data could potentially be intercepted during transmission. Another security issue could be an unauthorized user gaining physical access to this system and using it to stream video from other rooms in the house. Audio and video should not be stored but instead streamed directly between devices, as storing it could present a security risk in the future. 
-
-Raspberry Pi 3s will be used for the home intercom system to communicate between rooms. This is a good choice of hardware since the rPi3 will allow for easy input/output, communication between systems, and enough processing power to easily handle audio/video streaming. The rPi3s will need a way to get speakers and microphones built into them for this system; the speakers and microphones should not be separate from the main unit. For power, the rPi3s will be plugged into wall sockets with a power adapter that ensures they only receive 5 volts (if not already built in). Optionally, the system could have backup batteries in the event of a power outage so that it could continue to run. 
-
-The final system should be usable for most people (needs to make sense) but the interface does not need to be perfected to the point of passing user studies. The brightness should be adjustable from the rPi3 and use ambient light. In addition to automatically adjusting its own brightness for the environment, the system should turn itself off after being idle. If the system detects someone in the room, it should turn itself back on so that it is ready to be used. For this project, installation is not a problem that needs to be directly addressed in terms of usability so long as it can be powered with a wall socket and mounted at an appropriate height. The system should work out of box, and only need to be initially plugged in to work consistently with no other setup. People in other rooms that are being called from another should have the option to accept or deny the call, and select if they want to answer in an audio only mode (but should default to video). If no one is in view of a camera but the user is fairly certain they are in the house, the system could store the room the person was previously detected in and try ringing to that one. It could also have the option to ring every room for this situation. 
-
-Optionally this system could display calendar appointments, weather, and other useful information and functionality that wouldn’t interfere with the usability of the overall intercom. Since the system cannot be connected to an external network, it should get this information from an input only source (the system should NEVER send any data to these external devices) such as a phone or another rPi3 that is connected to the internet. There is still a security issue here, as the input that it receives could potentially be harmful. 
+Existing smart home intercom systems rely on a WiFi connection to function, which is not always convenient and presents a security issue if the network is compromised. For example, the Nucleus WiFi Intercom system allows users to place and receive calls within a home or between homes. However, the system’s connection to external WiFi and applications could compromise the security of a user's data.  
 
 
 
-\vspace{1cm}
-Proposed Solution
-\vspace{1cm}
 
-rPi3s are easily configured with cameras and have configurable pins for input and output, so setting up speakers and microphones should already be well documented and simple to setup. The largest challenges will be creating this system in a way that is secure and getting the rPi3s to talk to each other over an ad hoc network. There are tools such as BATMAN that can be used to aid in using an ad hoc network, but getting video and audio to stream live in an acceptable quality will be difficult. 
+\section{Problem Solution}
+A smart home intercom system should be simple. It should be able to be taken out of the box and able to run without requiring extensive user configuration. Each unit should be comprised of a wall mountable case with a touchscreen that houses a Raspberry Pi and has a camera, microphone, and speaker attached to it. The software should be integrated onto the unit already and it should require a PIN or password to connect to the existing systems and then ask for a room designation and work as intended. The unit should display a user interface that allows for easy access to controls for the speaker volume, microphone feedback, and brightness. The interface should display a button to place a call and an option to view video feed from a selected room on the left side of the screen. There should also be a menu option to allow for a user to change settings, such as setting either visitor or administrator mode. Administrator mode would allow for a user to view all connected units camera feeds and select audio feeds, whereas visitor mode would disable video feedback and only allow for paging to select rooms.
 
-To securely get external data, the rPi3s could use a bluetooth connection to a phone or an rPi3 separate from the intercom system that has internet connection. To ensure audio and video data is transmitted securely between rPi3s within the system, it will need to be encrypted at the sender and decrypted at the receiver. There are a number of common methods and tools to do encryption that would be sufficient for the scope of this project. 
+The system should be able to track rooms that are currently occupied and keep a record of where a user was last if they are not detected. It should be able to identify a person entering within view of the camera and specify that person’s occupancy of a room or last known room location. The screen should turn off after no one has been detected for a certain amount of time and it should adjust its own brightness in ambient light. The feeds between units should be on a secure, closed network to ensure that the units are unable to communicate over the internet.
 
-Certain functions will require a higher level of security, and for that reason there will need to be at least 2 types of users: a typical user and an admin level user. The admin level user would be able to look at video from other rooms in the house without necessarily sending/accepting a call, and would be able to configure settings on the device. A regular user should be able to make calls to other rooms but would not be able to access the more secure parts of the system without logging in as an admin. If one device was placed outside, for example on a patio, it should require a user to login as admin before placing a call. For this reason it might be practical to have a setting that allows a user to set a device in some sort of secure mode that always requires admin access. 
-
-In order to detect whether or not a person is in the room (whether or not the system should keep itself on or power off), input from the camera could be used to detect motion. When a person is detected, it could turn itself on and then go to sleep after several minutes of detecting no one. The system has to work in 4-7 rooms, meaning each unit will need the capability to talk to at least 3 others and potentially 1 additional external device.  
+There is potential for a specific unit to be able to sync to a person’s phone and retrieve calendar and weather updates and alert the user of whatever those might be, but this would need to be implemented in a way that doesn’t compromise the overall security of the system. There is also potential to add a secondary power supply to the Raspberry Pi devices such as a battery pack but this will depend on the power requirements for the system.
 
 
-\vspace{1cm}
 
-Performance Metrics
 
-\vspace{1cm}
-
-The following metrics will be used to track the progress of the project and to determine when it is reasonably complete:
+\section{Performance Metrics}
 
 \begin{itemize}
+\item The absolute measurement for this project is four functioning prototypes as described by below specifications.
+\item It should be scaleable amongst each other and it should allow for swapping out nodes.
+\item Initial prototyping involves configuring microphone, video, speaker and touchscreen systems with the Raspberry Pi and then implementing programs to further their usability.
+\item Each unit should be able to make and receive audio calls between each other and allow for video to be streamed.
+\item Devices should notify one another of the occupancy to allow for those units to direct a call correctly.
+\item Ultimately the unit should be able to be consolidated and packaged within a box and then booted to immediately be part of a large system of devices after a PIN or password verification.
+\item The system should enforce a visitor and administrator mode as discussed above.
+\end{list}
 
-\item Users will be able to place and recieve calls that use audio and/or video between at least 4 devices
-\item The system must be able to be run out-of-box, that is no complicated installation is required
-\item The user interface needs to be reasonably usable, most people should be able to use it intuitively
-\item The system must power itself on when it detects a person in the room
-\item Two types of users, admin and guest, need to be enforced: Guest can recieve calls from any room and request to call other rooms, Admin has all guest privileges but does not need permission to place a call and can view video feed from any device 
-\item Even if intercepted between devices, data should be encrypted so that it cannot be used
-\item There should be no direct connection to external networks such as WiFi
 
 
-\end{itemize}
+
+
 
 
 
