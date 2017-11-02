@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.20)  2 NOV 2017 14:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.9)  2 NOV 2017 16:06
 entering extended mode
 **./ReqDoc.tex
 (ReqDoc.tex
@@ -636,19 +636,12 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8.03> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 68.
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 71.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8.03> on input line 71.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5.62097> on input line 71.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <4.015> on input line 71.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.04124> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 78.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 76.
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <11.04124> not available
 
-(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 78.
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 76.
  (ReqDoc.toc
 LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -667,7 +660,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 85.
 Missing character: There is no â in font pplr7t!
 Missing character: There is no € in font pplr7t!
 Missing character: There is no œ in font pplr7t!
@@ -702,11 +695,11 @@ Missing character: There is no € in font pplr7t!
 Missing character: There is no ™ in font pplr7t!
  [5] [6] [7] (ReqDoc.aux) ) 
 Here is how much of TeX's memory you used:
- 15012 strings out of 493323
- 314912 string characters out of 3139062
- 364432 words of memory out of 3000000
- 18261 multiletter control sequences out of 15000+200000
- 49499 words of font info for 100 fonts, out of 3000000 for 9000
+ 14987 strings out of 493323
+ 314561 string characters out of 3139066
+ 364452 words of memory out of 3000000
+ 18243 multiletter control sequences out of 15000+200000
+ 45916 words of font info for 92 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,8n,66p,604b,698s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r
@@ -715,7 +708,7 @@ am Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/urw/palatino/uplb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palat
 ino/uplr8a.pfb>
-Output written on ReqDoc.pdf (8 pages, 89969 bytes).
+Output written on ReqDoc.pdf (8 pages, 89074 bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
