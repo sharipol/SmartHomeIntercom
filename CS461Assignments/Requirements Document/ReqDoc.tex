@@ -24,7 +24,7 @@
 				%Design Document
 				%Progress Report
 				}
-			
+\newcommand\tab[1][1cm]{\hspace*{#1}}			
 \newcommand{\NameSigPair}[1]{\par
 \makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
 \par\vspace{-12pt} \textit{\tiny\noindent
@@ -166,53 +166,53 @@ This system will rely on a mesh network to connect nodes to each other, and will
 \subsection{System Features}
 
 \subsubsection{Ability to stream video and audio between nodes}
-3.2.1.1  Introduction/Purpose of feature \\
-Streaming video and audio between nodes is the core of this project. It will allow users to communicate between rooms in a house. \\
-3.2.1.2  Stimulus/Response sequence \\
-User prompts system to stream video/audio to another node. \\ 
-3.2.1.3  Associated functional requirements \\
-3.2.1.3.1  Functioning mesh network \\
-3.2.1.3.2  Method of encrypting video and audio \\
-3.2.1.3.3  Hardware configured for appropriate I/O
+\tab 3.2.1.1  Introduction/Purpose of feature \\
+\tab Streaming video and audio between nodes is the core of this project. It will allow users to communicate between rooms in a house. \\ 
+\tab 3.2.1.2  Stimulus/Response sequence \\
+\tab User prompts system to stream video/audio to another node. \\ 
+\tab 3.2.1.3  Associated functional requirements \\
+\tab \tab 3.2.1.3.1  Functioning mesh network \\
+\tab \tab 3.2.1.3.2  Method of encrypting video and audio \\
+\tab \tab 3.2.1.3.3  Hardware configured for appropriate I/O
 
 \subsubsection{Functional user interface}
-3.2.2.1  Introduction/Purpose of feature \\
-An interface will allow users to select which rooms to place calls to, choose between audio and video, and operate the other features of the system. \\
-3.2.2.2  Stimulus/Response sequence \\
-User selects room to place call to, specifications for the call, and the node makes the call accordingly. \\
-3.2.2.3  Associated functional requirements \\
-3.2.2.3.1  Application that can run on Raspbian \\
-3.2.2.3.2  Back-end for interface 
+\tab 3.2.2.1  Introduction/Purpose of feature \\
+\tab An interface will allow users to select which rooms to place calls to, choose between audio and video, and operate the other features of the system. \\
+\tab 3.2.2.2  Stimulus/Response sequence \\
+\tab User selects room to place call to, specifications for the call, and the node makes the call accordingly. \\
+\tab 3.2.2.3  Associated functional requirements \\
+\tab \tab 3.2.2.3.1  Application that can run on Raspbian \\
+\tab \tab 3.2.2.3.2  Back-end for interface 
 
 \subsubsection{Ability to detect people in a room}
-3.2.3.1  Introduction/Purpose of feature \\
-Recognition of a person in the room will allow a node to automatically receive a call upon detection. \\
-3.2.3.2  Stimulus/Response sequence \\
+\tab 3.2.3.1  Introduction/Purpose of feature \\
+\tab Recognition of a person in the room will allow a node to automatically receive a call upon detection. \\
+\tab 3.2.3.2  Stimulus/Response sequence \\
 Node recognizes person in the same room, logs their presence so that another user can place a call to that location. \\
-3.2.3.3  Associated functional requirements \\
-3.2.3.3.1  Identify a person from another moving object \\
-       3.2.3.3.1.1  Facial recognition \\
-       3.2.3.3.1.2  Sensors (temperature, infrared) \\
-       3.2.3.3.1.3  Image analysis \\ 
-       3.2.3.3.2  Store last known location of a person
+\tab 3.2.3.3  Associated functional requirements \\
+\tab \tab 3.2.3.3.1  Identify a person from another moving object \\
+\tab \tab \tab 3.2.3.3.1.1  Facial recognition \\
+\tab \tab \tab 3.2.3.3.1.2  Sensors (temperature, infrared) \\
+\tab \tab \tab 3.2.3.3.1.3  Image analysis \\ 
+\tab \tab 3.2.3.3.2  Store last known location of a person
 
 \subsubsection{Minimal first-time setup}
-3.2.4.1  Introduction/Purpose of feature \\
-Minimizing the difficulty of first-time setup will allow the system to be more usable. It will also prevent setup related errors that could be caused by a user incorrectly following directions. \\
-3.2.4.2  Stimulus/Response sequence \\
-System is powered on, and proceeds to automatically set up as much as possible without user interference. \\
-3.2.4.3  Associated functional requirements \\
-3.2.4.3.1  Startup/power-on script to initialize application \\
-3.2.4.3.2  Application auto-launches, locks in 
+\tab 3.2.4.1  Introduction/Purpose of feature \\
+\tab Minimizing the difficulty of first-time setup will allow the system to be more usable. It will also prevent setup related errors that could be caused by a user incorrectly following directions. \\
+\tab 3.2.4.2  Stimulus/Response sequence \\
+\tab System is powered on, and proceeds to automatically set up as much as possible without user interference. \\
+\tab 3.2.4.3  Associated functional requirements \\
+\tab \tab 3.2.4.3.1  Startup/power-on script to initialize application \\
+\tab \tab 3.2.4.3.2  Application auto-launches, locks in 
 
 \subsubsection{Installation}
-3.2.5.1  Introduction/Purpose of feature \\
-Each node will need to be wall mountable so that it is easily accessible. Each node will be powered through a wall socket as it is a convenient source that doesn’t require more complex installation. \\
-3.2.5.2  Stimulus/Response sequence \\
-Not applicable \\ 
-3.2.5.3  Associated functional requirements \\
-3.2.5.3.1  Wall mountable \\
-3.2.5.3.2  Powered through wall socket
+\tab 3.2.5.1  Introduction/Purpose of feature \\
+\tab Each node will need to be wall mountable so that it is easily accessible. Each node will be powered through a wall socket as it is a convenient source that doesn’t require more complex installation. \\
+\tab 3.2.5.2  Stimulus/Response sequence \\
+\tab Not applicable \\ 
+\tab 3.2.5.3  Associated functional requirements \\
+\tab \tab 3.2.5.3.1  Wall mountable \\
+\tab \tab 3.2.5.3.2  Powered through wall socket
 
 \subsection{Performance requirements}
 1. Ability to broadcast video and audio between nodes with minimal delay and latency (at most 10ms). \\
