@@ -109,7 +109,7 @@ The Smart Home Intercom system uses Raspberry Pi 3 devices as nodes for a method
 [1] IEEE Software Engineering Standards Committee, “IEEE Std 830-1998, IEEE Recommended Practice for Software Requirements Specifications”, October 20, 1998. Source: http://www.math.uaa.alaska.edu/~afkjm/cs401/IEEE830.pdf
 
 \noindent[2] “Software Requirements Specification”, 2010. \\
-\noindent Source: http://www.cse.chalmers.se/\~feldt/courses/reqeng/examples/srs\_example\_2010\_group2.pdf
+\noindent Source: http://www.cse.chalmers.se/\textasciitilde{}feldt/courses/reqeng/examples/srs\_example\_2010\_group2.pdf
 
 \subsection{Overview}
 This document describes the intended function of the finished product and associated requirements. Section 2 describes in detail the finished product, constraints, and assumptions associated with the project. Section 3 discusses specific requirements and explains why they are necessary for the scope of this project.
@@ -167,7 +167,7 @@ This system will rely on a mesh network to connect nodes to each other, and will
 
 \subsubsection{Ability to stream video and audio between any 2 nodes}
 \tab 3.2.1.1  Introduction/Purpose of feature \\
-\tab Streaming video and audio between nodes is the core of this project. It will allow users to communicate between rooms in a house. \\ 
+\tab Streaming video and audio between nodes is the core of this project. It will allow users to communicate between \\ \tab rooms in a house. \\ 
 \tab 3.2.1.2  Stimulus/Response sequence \\
 \tab User prompts system to stream video/audio to another node. \\ 
 \tab 3.2.1.3  Associated functional requirements \\
@@ -178,7 +178,7 @@ This system will rely on a mesh network to connect nodes to each other, and will
 
 \subsubsection{Functional user interface}
 \tab 3.2.2.1  Introduction/Purpose of feature \\
-\tab An interface will allow users to select which rooms to place calls to, choose between audio and video, and operate the other features of the system. \\
+\tab An interface will allow users to select which rooms to place calls to, choose between audio and video, and operate \\ \tab the other features of the system. \\
 \tab 3.2.2.2  Stimulus/Response sequence \\
 \tab User selects room to place call to, specifications for the call, and the node makes the call accordingly. \\
 \tab 3.2.2.3  Associated functional requirements \\
@@ -191,7 +191,7 @@ This system will rely on a mesh network to connect nodes to each other, and will
 \tab 3.2.3.1  Introduction/Purpose of feature \\
 \tab Recognition of a person in the room will allow a node to automatically receive a call upon detection. \\
 \tab 3.2.3.2  Stimulus/Response sequence \\
-Node recognizes person in the same room, logs their presence so that another user can place a call to that location. \\
+\tab Node recognizes person in the same room, logs their presence so that another user can place a call to that location. \\
 \tab 3.2.3.3  Associated functional requirements \\
 \tab \tab 3.2.3.3.1  Identify a person from another moving object \\
 \tab \tab \tab 3.2.3.3.1.1  Facial recognition \\
@@ -201,7 +201,7 @@ Node recognizes person in the same room, logs their presence so that another use
 
 \subsubsection{Automatic launch of application}
 \tab 3.2.4.1  Introduction/Purpose of feature \\
-\tab Minimizing the difficulty of first-time setup will allow the system to be more usable. It will also prevent setup related errors that could be caused by a user incorrectly following directions. \\
+\tab Minimizing the difficulty of first-time setup will allow the system to be more usable. It will also prevent setup \\ \tab related errors that could be caused by a user incorrectly following directions. \\
 \tab 3.2.4.2  Stimulus/Response sequence \\
 \tab System is powered on, and proceeds to automatically set up as much as possible without user interference. \\
 \tab 3.2.4.3  Associated functional requirements \\
@@ -210,17 +210,16 @@ Node recognizes person in the same room, logs their presence so that another use
 
 \subsubsection{Power and mountable configuration}
 \tab 3.2.5.1  Introduction/Purpose of feature \\
-\tab Each node will need to be wall mountable so that it is easily accessible. Each node will be powered through a wall socket as it is a convenient source that doesn’t require more complex installation. \\
+\tab Each node will need to be wall mountable so that it is easily accessible. Each node will be powered through a \\ \tab wall socket as it is a convenient source that doesn’t require more complex installation. \\
 \tab 3.2.5.2  Stimulus/Response sequence \\
 \tab Not applicable \\ 
-
 \tab 3.2.5.3  Associated functional requirements \\
 \tab \tab 3.2.5.3.1  Wall mountable \\
 \tab \tab 3.2.5.3.2  Powered through wall socket
 
 \subsection{Performance requirements}
 1. Ability to broadcast video and audio between nodes with minimal delay and latency (at most 10ms) \\
-2. Video at a minimum of 30 fps (verify against hardware) \\
+2. Video at a minimum of 30 fps \\ %(verify against hardware) \\
 3. System responds to user input within 1 second
 
 \subsection{Design constraints}
