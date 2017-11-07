@@ -131,7 +131,7 @@ A user will be able to place a call from one node to any other node in the house
 \subsection{User characteristics}
 This system should be able to be used by most people with minimal instruction and set-up. Since the main functionality only involves placing and accepting calls with simple buttons, no technical experience should be needed to use this system. 
 
-\noindent There will be three types of user for the system, which are set by the user: admin, standard, and guest. A node set to guest mode will only be able to receive calls, and will not receive video calls unless the other node authorizes it. This mode would be useful for a device placed outside, for example as a method of communicating with someone outside the front door. 
+\noindent There will be three types of users for the system, which are set by the user: admin, standard, and guest. A node set to guest mode will only be able to receive calls, and will not receive video calls unless the other node authorizes it. This mode would be useful for a device placed outside, for example as a method of communicating with someone outside the front door. 
 
 \noindent In standard mode, a user can place and receive calls, including video calls (if accepted from the other node). This mode would be intended for rooms that guests in a house would be likely to frequent, such as a kitchen or living room. This is also the mode that new nodes would default to. 
 
@@ -140,10 +140,10 @@ This system should be able to be used by most people with minimal instruction an
 \subsection{Constraints}
 The main hardware for this system should be built using a Raspberry Pi 3 for its affordability and processing power required for this project. The system should have its own mesh network separate from the public internet, and allow a new device node to be easily added into the system by most users.
 
-\noindent A possible constraint might be that the mesh network might not be able to reliably stream video to a device multiple nodes away, because the more nodes the information has to hop over the more it degrades and the video becomes more stuttered and choppy at the receiving end of the video.
+\noindent A possible constraint is that the mesh network might not be able to reliably stream video to a device multiple nodes away, because the more nodes the information has to hop over the more it degrades and the video becomes more stuttered and choppy at the receiving end of the video.
 
 \subsection{Assumptions and dependencies}
-Beginning this project, it is assumed that there are sufficient hardware resources to run a network from the nodes themselves rather than relying on a central device to do so. More generally, it is assumed that the Raspberry Pi 3s will be able to handle the overhead of the required software libraries for this project. The application that will eventually run on this hardware relies on these assumptions, and will have to be altered if any of them are incorrect. 
+Beginning this project, it is assumed that there are sufficient hardware resources to run a network from the nodes themselves rather than relying on a central device to do so. More generally, it is assumed that the Raspberry Pi 3 devices will be able to handle the overhead of the required software libraries for this project. The application that will eventually run on this hardware relies on these assumptions, and will have to be altered if any of them are incorrect. 
 
 \subsection{Apportioning of requirements}
 Ideally, the Home Intercom System would incorporate additional features to make the product more compelling to a greater range of users. For example, the ability to display calendar appointments and weather information by connecting securely to a device with internet connection. Another future requirement could enable the system to detect pets apart from people, allowing the user to view video feeds of rooms with pets in them. 
@@ -189,7 +189,7 @@ This system will rely on a mesh network to connect nodes to each other, and will
 
 \subsubsection{Ability to detect a person in a room}
 \tab 3.2.3.1  Introduction/Purpose of feature \\
-\tab Recognition of a person in the room will allow a node to automatically receive a call upon detection. \\
+\tab Recognition of a person in the room will allow a node to automatically designate a room as occupied. \\
 \tab 3.2.3.2  Stimulus/Response sequence \\
 \tab Node recognizes person in the same room, logs their presence so that another user can place a call to that location. \\
 \tab 3.2.3.3  Associated functional requirements \\
