@@ -109,7 +109,7 @@ The Smart Home Intercom system uses Raspberry Pi 3 devices as nodes for a method
 [1] IEEE Software Engineering Standards Committee, “IEEE Std 830-1998, IEEE Recommended Practice for Software Requirements Specifications”, October 20, 1998. Source: http://www.math.uaa.alaska.edu/~afkjm/cs401/IEEE830.pdf
 
 \noindent[2] “Software Requirements Specification”, 2010. \\
-\noindent Source: http://www.cse.chalmers.se/\~feldt/courses/reqeng/examples/srs\_example\_2010\_group2.pdf
+\noindent Source: http://www.cse.chalmers.se/\textasciitilde{}feldt/courses/reqeng/examples/srs\_example\_2010\_group2.pdf
 
 \subsection{Overview}
 This document describes the intended function of the finished product and associated requirements. Section 2 describes in detail the finished product, constraints, and assumptions associated with the project. Section 3 discusses specific requirements and explains why they are necessary for the scope of this project.
@@ -143,7 +143,7 @@ The main hardware for this system should be built using a Raspberry Pi 3 for its
 \noindent A possible constraint might be that the mesh network might not be able to reliably stream video to a device multiple nodes away, because the more nodes the information has to hop over the more it degrades and the video becomes more stuttered and choppy at the receiving end of the video.
 
 \subsection{Assumptions and dependencies}
-Beginning this project, it is assumed that the provided Raspberry Pi 3s will have the Linux-based operating system Raspbian installed. Furthermore, it is assumed that there is sufficient hardware resources to run a network from the nodes themselves rather than relying on a central device to do so. More generally, it is assumed that the Raspberry Pi 3s will be able to handle the overhead of the required software libraries for this project. The application that will eventually run on this hardware relies on these assumptions, and will have to be altered if any of them are incorrect. 
+Beginning this project, it is assumed that there are sufficient hardware resources to run a network from the nodes themselves rather than relying on a central device to do so. More generally, it is assumed that the Raspberry Pi 3s will be able to handle the overhead of the required software libraries for this project. The application that will eventually run on this hardware relies on these assumptions, and will have to be altered if any of them are incorrect. 
 
 \subsection{Apportioning of requirements}
 Ideally, the Home Intercom System would incorporate additional features to make the product more compelling to a greater range of users. For example, the ability to display calendar appointments and weather information by connecting securely to a device with internet connection. Another future requirement could enable the system to detect pets apart from people, allowing the user to view video feeds of rooms with pets in them. 
@@ -152,43 +152,46 @@ Ideally, the Home Intercom System would incorporate additional features to make 
 
 \subsection{External interface requirements}
 \subsubsection{User interfaces}
-The user interface will run on a 7” touch screen and will allow a user to operate the features of the system. Commands to the system will be sent by the user pressing buttons on the screen.
+The user interface will run on a touch screen and will allow a user to operate the features of the system. Commands to the system will be sent by the user pressing buttons on the screen.
 
 \subsubsection{Hardware interfaces}
 Each node will require a camera, microphone, speaker, touch screen, power supply, a (built in) network card, and potentially other sensors. The software will interface with this hardware using USB and other I/O ports on each node. 
 
 \subsubsection{Software interfaces}
-The application for this system will run on the Raspbian operating system. Since this OS is based on Linux, compatible software systems necessary for encryption, video streaming, and networking should be able to run in the application. 
+The software must run as a native application. Compatible software systems necessary for encryption, video streaming, and networking should be able to run in the application. 
 
 \subsubsection{Communications interfaces}
 This system will rely on a mesh network to connect nodes to each other, and will not use any outside network. Data transmitted between nodes will be encrypted to ensure the privacy of users’ data. 
 
 \subsection{System Features}
 
-\subsubsection{Ability to stream video and audio between nodes}
+\subsubsection{Ability to stream video and audio between any 2 nodes}
 \tab 3.2.1.1  Introduction/Purpose of feature \\
-\tab Streaming video and audio between nodes is the core of this project. It will allow users to communicate between rooms in a house. \\ 
+\tab Streaming video and audio between nodes is the core of this project. It will allow users to communicate between \\ \tab rooms in a house. \\ 
 \tab 3.2.1.2  Stimulus/Response sequence \\
 \tab User prompts system to stream video/audio to another node. \\ 
 \tab 3.2.1.3  Associated functional requirements \\
 \tab \tab 3.2.1.3.1  Functioning mesh network \\
 \tab \tab 3.2.1.3.2  Method of encrypting video and audio \\
-\tab \tab 3.2.1.3.3  Hardware configured for appropriate I/O
+\tab \tab 3.2.1.3.3  Hardware configured for appropriate I/O \\
+\tab \tab 3.2.1.3.4  Video/audio default configuration (i.e. to stream one or both) dependent on room
 
 \subsubsection{Functional user interface}
 \tab 3.2.2.1  Introduction/Purpose of feature \\
-\tab An interface will allow users to select which rooms to place calls to, choose between audio and video, and operate the other features of the system. \\
+\tab An interface will allow users to select which rooms to place calls to, choose between audio and video, and operate \\ \tab the other features of the system. \\
 \tab 3.2.2.2  Stimulus/Response sequence \\
 \tab User selects room to place call to, specifications for the call, and the node makes the call accordingly. \\
 \tab 3.2.2.3  Associated functional requirements \\
-\tab \tab 3.2.2.3.1  Application that can run on Raspbian \\
-\tab \tab 3.2.2.3.2  Back-end for interface 
+\tab \tab 3.2.2.3.1  Application that can run natively \\
+\tab \tab 3.2.2.3.2  A physical switch to disable the camera \\
+\tab \tab 3.2.2.3.3  When a call is accepted, user can decide whether or not to stream video \\ 
+\tab \tab 3.2.2.3.4  Back-end for interface 
 
-\subsubsection{Ability to detect people in a room}
+\subsubsection{Ability to detect a person in a room}
 \tab 3.2.3.1  Introduction/Purpose of feature \\
 \tab Recognition of a person in the room will allow a node to automatically receive a call upon detection. \\
 \tab 3.2.3.2  Stimulus/Response sequence \\
-Node recognizes person in the same room, logs their presence so that another user can place a call to that location. \\
+\tab Node recognizes person in the same room, logs their presence so that another user can place a call to that location. \\
 \tab 3.2.3.3  Associated functional requirements \\
 \tab \tab 3.2.3.3.1  Identify a person from another moving object \\
 \tab \tab \tab 3.2.3.3.1.1  Facial recognition \\
@@ -196,18 +199,18 @@ Node recognizes person in the same room, logs their presence so that another use
 \tab \tab \tab 3.2.3.3.1.3  Image analysis \\ 
 \tab \tab 3.2.3.3.2  Store last known location of a person
 
-\subsubsection{Minimal first-time setup}
+\subsubsection{Automatic launch of application}
 \tab 3.2.4.1  Introduction/Purpose of feature \\
-\tab Minimizing the difficulty of first-time setup will allow the system to be more usable. It will also prevent setup related errors that could be caused by a user incorrectly following directions. \\
+\tab Minimizing the difficulty of first-time setup will allow the system to be more usable. It will also prevent setup \\ \tab related errors that could be caused by a user incorrectly following directions. \\
 \tab 3.2.4.2  Stimulus/Response sequence \\
 \tab System is powered on, and proceeds to automatically set up as much as possible without user interference. \\
 \tab 3.2.4.3  Associated functional requirements \\
 \tab \tab 3.2.4.3.1  Startup/power-on script to initialize application \\
 \tab \tab 3.2.4.3.2  Application auto-launches, locks in 
 
-\subsubsection{Installation}
+\subsubsection{Power and mountable configuration}
 \tab 3.2.5.1  Introduction/Purpose of feature \\
-\tab Each node will need to be wall mountable so that it is easily accessible. Each node will be powered through a wall socket as it is a convenient source that doesn’t require more complex installation. \\
+\tab Each node will need to be wall mountable so that it is easily accessible. Each node will be powered through a \\ \tab wall socket as it is a convenient source that doesn’t require more complex installation. \\
 \tab 3.2.5.2  Stimulus/Response sequence \\
 \tab Not applicable \\ 
 \tab 3.2.5.3  Associated functional requirements \\
@@ -215,12 +218,12 @@ Node recognizes person in the same room, logs their presence so that another use
 \tab \tab 3.2.5.3.2  Powered through wall socket
 
 \subsection{Performance requirements}
-1. Ability to broadcast video and audio between nodes with minimal delay and latency (at most 10ms). \\
-2. Video at a minimum of 20 fps (verify against hardware.) \\
+1. Ability to broadcast video and audio between nodes with minimal delay and latency (at most 10ms) \\
+2. Video at a minimum of 30 fps \\ %(verify against hardware) \\
 3. System responds to user input within 1 second
 
 \subsection{Design constraints}
-All software for this project will need to run on a small computer on each node. The software must run as an application on Raspbian (similar to Linux). Each node must be self-contained, that is the same wall-mounted object will hold the camera, microphone, speaker, touch screen, and any additional sensors.
+All software for this project will need to run on a small computer on each node. The software must run as a native application. Each node must be self-contained, that is the same wall-mounted object will hold the camera, microphone, speaker, touch screen, and any additional sensors.
 
 \subsection{Software system attributes}
 
