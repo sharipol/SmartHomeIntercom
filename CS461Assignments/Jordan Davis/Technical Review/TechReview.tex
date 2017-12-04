@@ -1,0 +1,188 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{textcomp}
+
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Team 25}
+\def \CapstoneTeamNumber{		25}
+\def \GroupMemberOne{			Lazar Sharipoff}
+\def \GroupMemberTwo{			Jordan Davis}
+\def \GroupMemberThree{			Glen Anderson}
+\def \CapstoneProjectName{		Smart Home Intercom System}
+\def \CapstoneSponsorCompany{	Oregon State EECS}
+\def \CapstoneSponsorPerson{		D. Kevin McGrath}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		%Problem Statement
+				%Requirements Document
+				Technology Review
+				%Design Document
+				%Progress Report
+				}
+\newcommand\tab[1][1cm]{\hspace*{#1}}			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+    	%\includegraphics[height=4cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\large Prepared for}\par
+            \Huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            %Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            %\CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                %\NameSigPair{\GroupMemberOne}\par
+                \NameSigPair{\GroupMemberTwo}\par
+                %\NameSigPair{\GroupMemberThree}\par
+            }
+            \vspace{20pt}
+        }
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	The Smart Home Intercom System has many dependencies. Three of these dependencies are user interface packages, network protocols, and operating systems. This document describes three possible approaches to each and chooses one approach to use per dependency.  
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+
+% 8. now you write!
+\section{Network Protocol}
+
+\subsection{Overview}
+
+Smart Home Intercom System units need to be able to securely connect to each other without requiring the backbone of external networking devices. The units should be scalable as more get added on or taken off without interrupting the other devices. 
+
+\subsection{Criteria}
+
+The selection criteria for network protocols is ultimately the amount of potential support or write-ups a protocol has online. The other factors that were considered are OSI layer operations, ease of adding or removing nodes and ease of use.
+
+\subsection{Potential Choices}
+
+\subsubsection{B.A.T.M.A.N. Advanced}
+
+B.A.T.M.A.N. Advanced, or batman-adv, is a networking protocol that can be used to create mesh networks. It is added on the second layer of the OSI model, meaning that all traffic it sends out uses raw data \cite{OpenMesh:BATMANwiki}. It can be mixed with non-B.A.T.M.A.N. systems as well, which is potentially beneficial for some stretch goals \cite{OpenMesh:BATMANquickstart}. There are also optimized guides available online for Linux systems \cite{OpenMesh:BATMANdebian}. One of the primary benefits of batman-adv is that it can support many subnets but it does require each device have its own IP address previously assigned \cite{OpenMesh:BATMANFAQ}.
+
+\subsubsection{Netsukuku}
+
+Netsukuku is another potential mesh network protocol that operates on level three of the OSI model \cite{Netsukuku:title}. Netsukuku is primarily for larger peer-to-peer networks, wherein IP addressing and routes are calculated on the fly. Netsukuku faces an interesting challenge within itself because it cannot dynamically interchange roles on the protocol. It assigns the roles of "Static Node" and "Guest Node" that would make it potentially hard to work with on a system that could change easily \cite{Netsukuku:topology}. Perhaps the most challenging thing about Netsukuku is that it is implemented in vala and python. Vala is a programming language that focuses on allowing programmers the ability to write in high-level languages but don't want the overhead that they require \cite{Vala:intro}. While the language itself is not too much of an issue, the potential lack of support given vala is a more obscure language and the age of Netsukuku make it a non-optimal solution.
+
+\subsubsection{Qt Network Programming}
+
+Qt is predominantly a user interface technology, but it has modules for network programming. "The QtNetwork module offers classes that allow you to write TCP/IP clients and servers" \cite{QT:what}. It offers a full listing of classes available for its module and examples of its usage \cite{QT:examples}. These examples, particularly multicast receiver and multicast sender would help the project move forward faster. There are potential issues with Qt as it lacks much documentation on interconnecting with only its own nodes, as a mesh network would require. Despite this, it is an open source software and could therefore be modified to fit our needs \cite{QT:open}.
+
+\subsection{Discussion}
+
+Batman-adv offers the ability to operate on layer 2 while Netsukuku forces operations on layer 3. The ability of batman-adv to send raw data among its nodes instead of touching the data, like Netsukuku does, makes it stand out. No protocol or package makes adding and removing nodes particularly easy, with batman-adv being the easiest as a node can be scripted to connect itself. Qt is an incredibly fitting package with a module that is supportive of what the project needs. However, it falls under an unknown category as what is being asked of it might simply not be possible.
+
+\subsection{Conclusion}
+
+The optimal solution is to split the difference. Qt has a network protocol that operates via the same operations as a normal device would while batman-adv operates on layer 2, allowing it to encapsulate and send out everything it is told to. Because of this Qt is the first implementation to test and it can be run alongside batman-adv if Qt doesn't have the security or ability to be molded as it needs to be.
+
+%---------------break-------------------
+
+\section{User Interface}
+
+\subsection{Overview}
+
+The first thing anyone will see when they look at a unit will be its user interface. It will need to be responsive and customizable for a users own individual preferences while making sure it doesn't fall short on options available to the user.
+
+\subsection{Criteria}
+
+The criteria for user interface (UI) is proven ease of use for the user. User interfaces should optimize the user experience, while still offering optimal performance. The technology should offer extensive examples of it being used for purposes similar to those required. API references are a necessity to streamline the making of the interface.
+
+\subsection{Potential Choices}
+
+\subsubsection{Qt 4.8}
+
+Qt 4.8 is an open source application and UI framework that supports many platforms \cite{QT:open} \cite{QT:platforms}. Qt even offers a guide for starting with the Raspberry Pi \cite{QT:pi}. It offers support for both Linux/X11 and Windows systems \cite{QT:linux} \cite{QT:windows}. Along with supporting various operating systems, it contains class libraries and integrated development tools to help support its own environment \cite{QT:linux} \cite{QT:windows}. Qt is primarily cross-platform which means that it will be easier to develop with \cite{QT:platforms}. Beyond that, Qt contains examples and guides for its systems \cite{QT:learn}.
+
+\subsubsection{Kivy}
+
+Kivy is an "open source Python library for rapid development of applications that make use of innovative user interface" \cite{Kivy:home}. It can run on a Raspberry Pi and is partially written in "C using Cython" \cite{Kivy:home}. Kivy offers an extensive and detailed API \cite{Kivy:API}. Beyond its extensive API are examples and a detailed getting started guide \cite{Kivy:intro}. Because it is written using Python, there is potential for it to easily run on other devices, should more testing be required.
+
+\subsubsection{GTK+}
+
+GTK+ can be used in a multitude of ways \cite{GTK:intro}. It offers a large number of interface options along with offering an all inclusive toolkit \cite{GTK:features}. GTK+ is supported by a majority of operating systems and has packages to allow for operations in many programming languages \cite{GTK:features}.
+
+\subsection{Discussion}
+
+All three choices offer extensive API catalogues and can be supported on a single board computers. Examples are offered by each package that show it doing what will be required of it. Even cross platform usage is possible with all options. The primary difference is that Qt 4.8 uses C++, Kivy uses Python and GTK+ can use either Python or C++. Perhaps the most interesting point here is that, despite all being user interface packages, only Qt 4.8 offers an IDE and user interface to go along with itself for testing.
+
+\subsection{Conclusion}
+
+The ideal package is Qt 4.8 primarily because it contains an easily usable and optimized development environment.
+
+%---------------break-------------------
+
+\section{Operating Systems}
+
+\subsection{Overview}
+
+Operating systems will either increase or reduce overhead and allow for ability of potential hardware and software addons.
+
+\subsection{Criteria}
+
+For the Smart Home Intercom System project, the operating system should be concealed and locked away from the end user. The operating system should be able to handle hardware that is attached to it as well as support running Qt and potentially the B.A.T.M.A.N. protocol.
+
+\subsection{Potential Choice}
+
+\subsubsection{Raspbian}
+
+Raspbian is a Debian distribution optimized for the Raspberry Pi \cite{Raspbian:OS}. Because it is based off of Debian, there is extensive support for Raspbian \cite{Raspbian:FAQ}. Additionally, Raspbian is fairly well supported by the Raspberry Pi community \cite{Raspbian:OSlist}. Due to Raspbian being a variety of Debian, it is possible to modify installation packages to make boot time into the smart home intercom system software minimal.
+
+\subsubsection{Windows IoT}
+
+Windows IoT is a variety of Windows 10 made for the Raspberry Pi \cite{Win10:IoT}. It is optimized to be used with Visual Studios and used to create automation projects \cite{Win10:dev}. With an ISO image of only 651.8 megabytes \cite{Win10:IoT}, Windows IoT is incredibly lightweight. The major downfall of Windows IoT is requiring non-onboard hardware. For instance, the Raspberry Pi camera module is not supported via Windows IoT and requires an external webcam.
+
+\subsubsection{Snappy Ubuntu}
+
+Snappy Ubuntu is relatively lightweight and offers an optimized approach to software packages \cite{snappy:what}. It forces programs to not interrupt the system when running and only passes through what it needs. A snap contains metadata that will allow apps to be updated as they are run or called. This allows the newest changes to be pushed onto the device \cite{snappy:main}. 
+
+\subsection{Discussion}
+
+While Snappy Ubuntu offers the ability to add or remove packages on the fly, the ideal system would be unable to connect to the internet which would force the primary utilities of snappy to falter. Windows IoT requires an external webcam due to being unable to use certain parts of the Raspberry Pi hardware. Raspbian is not lightweight, as it is the basic operating system for a Raspberry Pi, and would require extensive cleaning up to make it lightweight and supportive of the end goal.
+
+\subsection{Conclusion}
+
+Ultimately, Raspbian is the most optimized solution for our problem given current available technologies. It forces certain issues to be addressed, such as removing packages that were previously installed but will be the most supportive of Qt and it has the ability to use batman-adv.
+
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{TechReview}
+%\nocite{*}
+
+\end{document}
