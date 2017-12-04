@@ -1,0 +1,45 @@
+\contentsline {section}{\numberline {1}Purpose}{2}
+\contentsline {section}{\numberline {2}Progress}{2}
+\contentsline {section}{\numberline {3}Challenges}{2}
+\contentsline {section}{\numberline {4}Goals}{2}
+\contentsline {section}{\numberline {5}Retrospective}{2}
+\contentsline {subsection}{\numberline {5.1}Week 1}{3}
+\contentsline {subsubsection}{\numberline {5.1.1}Lazar Sharipoff}{3}
+\contentsline {subsubsection}{\numberline {5.1.2}Jordan Davis}{3}
+\contentsline {subsubsection}{\numberline {5.1.3}Glen Anderson}{3}
+\contentsline {subsection}{\numberline {5.2}Week 2}{3}
+\contentsline {subsubsection}{\numberline {5.2.1}Lazar Sharipoff}{3}
+\contentsline {subsubsection}{\numberline {5.2.2}Jordan Davis}{3}
+\contentsline {subsubsection}{\numberline {5.2.3}Glen Anderson}{3}
+\contentsline {subsection}{\numberline {5.3}Week 3}{3}
+\contentsline {subsubsection}{\numberline {5.3.1}Lazar Sharipoff}{3}
+\contentsline {subsubsection}{\numberline {5.3.2}Jordan Davis}{4}
+\contentsline {subsubsection}{\numberline {5.3.3}Glen Anderson}{4}
+\contentsline {subsection}{\numberline {5.4}Week 4}{4}
+\contentsline {subsubsection}{\numberline {5.4.1}Lazar Sharipoff}{4}
+\contentsline {subsubsection}{\numberline {5.4.2}Jordan Davis}{4}
+\contentsline {subsubsection}{\numberline {5.4.3}Glen Anderson}{4}
+\contentsline {subsection}{\numberline {5.5}Week 5}{4}
+\contentsline {subsubsection}{\numberline {5.5.1}Lazar Sharipoff}{4}
+\contentsline {subsubsection}{\numberline {5.5.2}Jordan Davis}{5}
+\contentsline {subsubsection}{\numberline {5.5.3}Glen Anderson}{5}
+\contentsline {subsection}{\numberline {5.6}Week 6}{5}
+\contentsline {subsubsection}{\numberline {5.6.1}Lazar Sharipoff}{5}
+\contentsline {subsubsection}{\numberline {5.6.2}Jordan Davis}{5}
+\contentsline {subsubsection}{\numberline {5.6.3}Glen Anderson}{5}
+\contentsline {subsection}{\numberline {5.7}Week 7}{5}
+\contentsline {subsubsection}{\numberline {5.7.1}Lazar Sharipoff}{5}
+\contentsline {subsubsection}{\numberline {5.7.2}Jordan Davis}{6}
+\contentsline {subsubsection}{\numberline {5.7.3}Glen Anderson}{6}
+\contentsline {subsection}{\numberline {5.8}Week 8}{6}
+\contentsline {subsubsection}{\numberline {5.8.1}Lazar Sharipoff}{6}
+\contentsline {subsubsection}{\numberline {5.8.2}Jordan Davis}{7}
+\contentsline {subsubsection}{\numberline {5.8.3}Glen Anderson}{7}
+\contentsline {subsection}{\numberline {5.9}Week 9}{7}
+\contentsline {subsubsection}{\numberline {5.9.1}Lazar Sharipoff}{7}
+\contentsline {subsubsection}{\numberline {5.9.2}Jordan Davis}{7}
+\contentsline {subsubsection}{\numberline {5.9.3}Glen Anderson}{8}
+\contentsline {subsection}{\numberline {5.10}Week 10}{8}
+\contentsline {subsubsection}{\numberline {5.10.1}Lazar Sharipoff}{8}
+\contentsline {subsubsection}{\numberline {5.10.2}Jordan Davis}{8}
+\contentsline {subsubsection}{\numberline {5.10.3}Glen Anderson}{8}
