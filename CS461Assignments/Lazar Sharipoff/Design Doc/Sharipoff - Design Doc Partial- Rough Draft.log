@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.9)  1 DEC 2017 12:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.9)  30 NOV 2017 16:12
 entering extended mode
-**"./Sharipoff - Tech Review- Final Draft.tex"
-("Sharipoff - Tech Review- Final Draft.tex"
+**"./Sharipoff - Design Doc Partial- Rough Draft.tex"
+("Sharipoff - Design Doc Partial- Rough Draft.tex"
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ieeetran\IEEEtran.cls"
@@ -602,8 +602,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks28
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("Sharipoff - Tech Review- Final Draft.aux")
-\openout1 = `"Sharipoff - Tech Review- Final Draft.aux"'.
+("Sharipoff - Design Doc Partial- Rough Draft.aux")
+\openout1 = `"Sharipoff - Design Doc Partial- Rough Draft.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
@@ -716,33 +716,37 @@ ABD: EveryShipout initializing macros
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Font shape `OT1/ppl/bx/sc' in size <20.075> not available
-(Font)              Font shape `OT1/ppl/b/sc' tried instead on input line 51.
-LaTeX Font Info:    Font shape `OT1/ppl/bx/sc' in size <24.09> not available
-(Font)              Font shape `OT1/ppl/b/sc' tried instead on input line 51.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 69.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 42.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8.03> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 69.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.04124> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 42.
+LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <11.04124> not available
 
-! I can't write on file `"Sharipoff - Tech Review- Final Draft.pdf"'.
-Please type another file name for output
-! Emergency stop.
-\@EveryShipout@Output ...@Org@Shipout \box \@cclv 
-                                                  
-l.74 \end{titlepage}
-                    
-*** (job aborted, file error in nonstop mode)
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 42.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9.53561> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 45.
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
- 
+]
+("Sharipoff - Design Doc Partial- Rough Draft.aux") ) 
 Here is how much of TeX's memory you used:
- 15076 strings out of 493323
- 314046 string characters out of 3139066
- 357837 words of memory out of 3000000
- 18355 multiletter control sequences out of 15000+200000
- 25829 words of font info for 66 fonts, out of 3000000 for 9000
+ 15081 strings out of 493323
+ 314215 string characters out of 3139066
+ 358835 words of memory out of 3000000
+ 18352 multiletter control sequences out of 15000+200000
+ 29608 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,5n,65p,461b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 62i,6n,65p,560b,171s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2
+.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/hel
+vetic/uhvb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb>
+Output written on "Sharipoff - Design Doc Partial- Rough Draft.pdf" (1 page, 36
+236 bytes).
+PDF statistics:
+ 22 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+
