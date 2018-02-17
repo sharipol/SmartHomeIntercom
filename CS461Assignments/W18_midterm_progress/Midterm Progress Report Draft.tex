@@ -202,7 +202,8 @@ import cv2
 import sys
 
 
-faceCascade = cv2.CascadeClassifier('C:\Users\Glen\OpenCV\opencv\sources\data\haarcascades\haarcascade_frontalface_default.xml')
+faceCascade = cv2.CascadeClassifier
+('C:\Users\Glen\OpenCV\opencv\sources\data\haarcascades\haarcascade_frontalface_default.xml')
 #Tell OpenCV where to get video input from 
 video_capture = cv2.VideoCapture(0)
 
@@ -223,7 +224,8 @@ while True:
     #Outline faces with a rectangle 
     for (x, y, w, h) in faces:
         cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-    #If there is at least one face, the room is occupied - eventually this needs to be logged to a file with the node's information 
+    #If there is at least one face, the room is occupied - 
+	#eventually this needs to be logged to a file with the node's information 
     #Log room name, hostname, status to a file 
     if len(faces) >= 1:
         print "Face detected!"
