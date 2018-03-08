@@ -17,13 +17,9 @@ with picamera.PiCamera() as camera:
     camera.capture(stream,format='jpeg')
 
 buff = numpy.fromstring(stream.getvalue(), dtype=numpy.uint8)
-
 image = cv2.imdecode(buff,1)
-
 face_cascade = cv2.CascadeClassifier(cascadespath)
-
 gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
-
 faces = face_cascade.detectMultiScale(gray,1.1,5)
 
 if len(faces) > 0:
