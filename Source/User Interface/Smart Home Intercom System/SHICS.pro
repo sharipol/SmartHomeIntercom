@@ -26,12 +26,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    options.cpp
+    options.cpp \
+	myinputpanel.cpp
+	
 
 HEADERS += \
         mainwindow.h \
-    options.h
+    options.h \
+	myinputpanel.h
 
 FORMS += \
         mainwindow.ui \
-    options.ui
+    options.ui \
+	myinputpanelform.ui

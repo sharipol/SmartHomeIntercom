@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include<QProcess>
+#include "myinputpanel.h"
 
 namespace Ui {
 class options;
@@ -16,12 +17,19 @@ public:
     explicit options(QWidget *parent = 0);
     ~options();
 
+	
+	
+	
 private slots:
     void on_pushButton_clicked();
 
     void on_brightness_slider_valueChanged(int value);
 
-    void on_brightness_slider_sliderMoved(int position);
+    void on_volume_slider_valueChanged(int value);
+	
+	void on_apply_button_clicked();
+	
+	void on_defaultMode_activated(int value);
 
 private:
     Ui::options *ui;
