@@ -38,7 +38,10 @@ start_person_recognition(){
 }
 
 #Start batman
-#start_batman
+start_batman
+
+#Start person detection
+start_person_recognition
 
 if [[ ! -f setupconfig.txt ]]; then
 	echo "File does not exist"
