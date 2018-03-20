@@ -22,6 +22,8 @@ private slots:
 
     void on_Video_page_pressed();
 
+    void on_Audio_page_pressed();
+
 public:
     Ui::MainWindow *ui;
     options *Options;
