@@ -25,13 +25,17 @@ start_batman(){
 
 launch_setup(){
 	echo "Launching setup"
-
+	/home/pi/Desktop/SHIS_Setup/SHIS_Setup
 
 }
 launch_main(){
 	echo "Launching main app" 
-	/home/pi/Desktop/untitled/untitled
+	/home/pi/Desktop/SHIS/untitled
 }	
+start_person_recognition(){
+	#Start person recognition in background 
+	python /home/pi/Desktop/OpenCV.py &	
+}
 
 #Start batman
 #start_batman
@@ -45,8 +49,9 @@ if [[ ! -f setupconfig.txt ]]; then
 	printf "SETUP_DONE=FALSE\n$room $ipaddr $macaddr" > setupconfig.txt
 
 	#Launch setup GUI 
-	echo "Launching startup here" #After setup is done, write SETUP=TRUE to config 
-	
+	echo "Launching setup here" #After setup is done, write SETUP=TRUE to config 
+	launch_setup
+
 else #File exists, check flag value to see what to launch 
 	echo "File exists"
 	setup_status=`cat setupconfig.txt | grep SETUP_DONE= | cut -d "=" -f 2`
