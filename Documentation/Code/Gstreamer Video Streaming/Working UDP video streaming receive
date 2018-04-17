@@ -1,0 +1,1 @@
+gst-launch-1.0 udpsrc port=<CHOSEN_PORT> ! h264parse ! omxh264dec ! autovideosink
