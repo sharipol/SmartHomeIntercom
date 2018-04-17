@@ -1,0 +1,2 @@
+Picture in Picture Streaming:
+rpicamsrc bitrate=2097152 preview-opacity=255 preview-x=0 preview-y=0 preview-w=480 preview-h=270 fullscreen=false rotation=180 sensor-mode=5 annotation-mode=0x020c ! omxh264enc target-bitrate=2097152 control-rate=variable ! video/x-h264,width=480,height=270,framerate=25/1,profile=high ! h264parse ! udpsink host=<RECEIVING_PI_IP> port=<CHOSEN_PORT>
