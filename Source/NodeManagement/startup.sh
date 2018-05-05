@@ -24,6 +24,13 @@ start_batman(){
 	sleep 5s
 	sudo systemctl start dhcpcd
 	sudo systemctl start ssh
+	
+	echo "interface bat0" >> /etc/dhcpcd.conf
+	echo "static ip_address=192.168.0.X" >> /etc/dhcpcd.conf
+	
+	#Still need a function call here to 1. count devices 2. assign an IP based on count of devices 
+	echo "interface wlan0" >> /etc/dhcpcd.conf
+	echo "static ip_address=192.168.1.1" >> /etc/dhcpcd.conf
 
 }
 
