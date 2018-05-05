@@ -33,5 +33,12 @@ sleep 5s
 sudo systemctl start dhcpcd
 sudo systemctl start ssh
 
+#To make DHCP assign controlled IP addresses appending to /etc/dhcpcd.conf is required:
+#interface bat0
+#static ip_address=192.168.0.X
+#
+#interface wlan0
+#static ip_address=192.168.1.1
+
 #To ping between devices either use DHCP assigned IP or sudo batctl ping <MAC>.
 #Because of DHCP we will have to use batctl to get IP and send to other devices
