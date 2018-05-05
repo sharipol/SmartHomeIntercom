@@ -30,29 +30,41 @@ void MainWindow::on_Video_page_pressed()
 {
     //This kills and restarts openCV along with starting the video stream and
     //audio stream
-    QProcess *process = new QProcess(this);
-    QString send = QString::fromLatin1("raspivid -vf -t 0 -h 720 -w 1080 -fps 25 -hf -b 2000000 -o - | gst-launch-1.0 -v fdsrc ! h264parse ! rtph264pay config-interval=1 pt=96 ! gdppay ! udpsink host=RECEIVING-PI-IP-ADDRESS port=5000");
-    QString receive = QString::fromLatin1("gst-launch-1.0 -v tcpclientsrc host=169.254.99.124 port=5000 ! gdpdepay ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink sync=false");
+    QProcess *videoreceive = new QProcess(this);
+    QProcess *videosend = new QProcess(this);
+    QProcess *audioreceive = new QProcess(this);
+    QProcess *audiosend = new QProcess(this);
+    QProcess *killall = new QProcess(this);
+    
+    QTimer *timer = new QTimer(this);
+    
+    QString sendVideo = QString::fromLatin1("gst-launch-1.0 rpicamsrc bitrate=2097152 preview-opacity=255 preview-x=0 preview-y=0 preview-w=480 preview-h=270 fullscreen=false rotation=180 sensor-mode=5 annotation-mode=0x020c ! omxh264enc target-bitrate=2097152 control-rate=variable ! video/x-h264,width=480,height=270,framerate=25/1,profile=high ! h264parse ! udpsink host=192.168.0.1 port=5555");
+    QString receiveVideo = QString::fromLatin1("gst-launch-1.0 udpsrc port=5555 ! h264parse ! omxh264dec ! autovideosink");
     QString killCV =  QString::fromLatin1("kill $(ps axuww | grep \"python Desktop/OpenCV.py\" | awk \'{print $2}\' | sed -n 1p)");
     QString openCV = QString::fromLatin1("python Desktop/OpenCV.py");
-                                         
+    QString sendAudio = QString::fromLatin1("gst-launch-1.0 alsasrc device=hw:1 ! audioconvert ! opusenc ! rtpopuspay ! udpsink host=192.168.0.1 port=5000");
+    QString receiveAudio = QString::fromLatin1("gst-launch-1.0 udpsrc port=5000 caps="application/x-rtp" ! rtpopusdepay ! opusdec ! autoaudiosink");
+    QString killall = QString::fromLatin1("kill $(ps -a | grep gst | awk '{print $1}')")
+    
     //process->start(killCV);
     //Need some dedicated conditional to know whether to send or receive.
-    //process->start(send);
-    process->start(receive);
+    videoreceive->start(receiveVideo);
+    videosend->start(sendVideo);
+    audioreceive->start(receiveAudio);
+    audiosend->start(sendAudio);
     //process->start(openCV);
+    
+    //Need some condition to kill all. 
 }
 
 void MainWindow::on_Audio_page_pressed()
 {
     //This simply does audio and doesn't mess with OpenCV or Video Streaming
-    //Copy on_video_page_pressed into here with code for just audio
-    QProcess *process = new QProcess(this);
-    QString send = QString::fromLatin1("rec -c 1 -t wav - | ssh <IP> play -");
-    QString receive = QString::fromLatin1("rec -c 1 -t wav - | ssh <IP> play -");
+    QProcess *audioreceive = new QProcess(this);
+    QProcess *audiosend = new QProcess(this);
+    QString sendAudio = QString::fromLatin1("gst-launch-1.0 alsasrc device=hw:1 ! audioconvert ! opusenc ! rtpopuspay ! udpsink host=192.168.0.1 port=5000");
+    QString receiveAudio = QString::fromLatin1("gst-launch-1.0 udpsrc port=5000 caps="application/x-rtp" ! rtpopusdepay ! opusdec ! autoaudiosink");
     
-    //Need some dedicated conditional to know whether to send or receive.
-    process->start(send);
-    //process->start(receive);
-    
+    audioreceive->start(receiveAudio);
+    audiosend->start(sendAudio);
 }
