@@ -1,0 +1,260 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{pgfgantt}
+\usepackage{textcomp}
+
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Team 25}
+\def \CapstoneTeamNumber{		25}
+\def \GroupMemberOne{			Lazar Sharipoff}
+\def \GroupMemberTwo{			Jordan Davis}
+\def \GroupMemberThree{			Glen Anderson}
+\def \CapstoneProjectName{		Smart Home Intercom System}
+\def \CapstoneSponsorCompany{	Oregon State EECS}
+\def \CapstoneSponsorPerson{		D. Kevin McGrath}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		%Problem Statement
+				Requirements Document
+				%Technology Review
+				%Design Document
+				%Progress Report
+				}
+\newcommand\tab[1][1cm]{\hspace*{#1}}			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+    	%\includegraphics[height=4cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\large Prepared for}\par
+            \Huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            \CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+                \NameSigPair{\GroupMemberTwo}\par
+                \NameSigPair{\GroupMemberThree}\par
+            }
+            \vspace{20pt}
+        }
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	The requirements for the Smart Home Intercom system are reviewed and explained in this document. This will include a detailed description of the final system, constraints associated with creating the system, and requirements that it must meet. The document also includes a Gantt chart that shows a timeline for the project, including requirements.  
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+\listoftables
+\clearpage
+
+% 8. now you write!
+\section{Introduction}
+
+\subsection{Purpose}
+This document is intended to specify requirements for the Smart Home Intercom project and related software. It will explain the functions and constraints of the finished product and provide a reference for progress on the project for the client and project assignees. This document will be updated as progress is made on the project to reflect more specific requirements. 
+
+\subsection{Scope}
+The Smart Home Intercom system uses Raspberry Pi 3 devices as nodes for a method of communicating within a home between rooms. The system should run out-of-box and require little configuration by the end user. Users can place calls to specific rooms from one node to another, selecting between audio and video communication.  Each node will run software required to talk to every other, and have the option to send a call to all nodes at once. 
+
+\subsection{Definitions, acronyms, and abbreviations}
+\begin{table}[!htbp]
+\centering
+\caption{}
+\begin{tabular}{| l | l |}
+ \hline
+ \
+ Term & Description \\ \hline
+ Node & A single unit of the Smart Home Intercom System\\ \hline
+ User & An individual using the system\\ \hline
+ UI & User interface for each node\\ \hline
+ Client & Individual requesting the product\\ \hline
+ Project assignees & Individuals responsible for completing the requirements of the project\\ \hline
+ rPi3 & Raspberry Pi 3\\ \hline
+\end{tabular}
+\end{table}
+\centerline {Definitions}
+\subsection{References}
+[1] IEEE Software Engineering Standards Committee, “IEEE Std 830-1998, IEEE Recommended Practice for Software Requirements Specifications”, October 20, 1998. Source: http://www.math.uaa.alaska.edu/~afkjm/cs401/IEEE830.pdf
+
+\noindent[2] “Software Requirements Specification”, 2010. \\
+\noindent Source: http://www.cse.chalmers.se/\textasciitilde{}feldt/courses/reqeng/examples/srs\_example\_2010\_group2.pdf
+
+\subsection{Overview}
+This document describes the intended function of the finished product and associated requirements. Section 2 describes in detail the finished product, constraints, and assumptions associated with the project. Section 3 discusses specific requirements and explains why they are necessary for the scope of this project.
+
+\section{Overall description}
+
+\subsection{Product perspective}
+This product will be independent in the sense that it is not a part of a larger existing system, although future projects may incorporate this one. The system will consist of nodes that communicate over a network. Each node will contain a Raspberry Pi, a camera, as well as I/O for audio. The system will need to incorporate streaming, network, and encryption libraries in order to function.
+
+\noindent All sensitive data transmitted between nodes, including video and audio data, must be encrypted so that even if it is intercepted, it is unusable.  
+
+\noindent Since memory is limited to what one node can hold, the libraries used for network and encryption will have to be considered in terms of overhead as well as functionality. The quality of video streaming will also be a consideration, and will be affected by the method of network connection used. 
+
+\subsection{Product functions}
+A user will be able to place a call from one node to any other node in the house. The user can stream audio with the option of streaming video as well. A touch screen interface will allow the user to interact with the system and view video feed from other rooms. 
+
+\noindent The system will be able to detect when a person is in another room, and keep track of which room this is. If a call is placed from another room in the house, it will inform the caller of another person’s last known location so that they can choose to place the call there. Since this feature will have to distinguish a person from other moving objects such as pets, facial or shape recognition may be necessary. 
+
+\subsection{User characteristics}
+This system should be able to be used by most people with minimal instruction and set-up. Since the main functionality only involves placing and accepting calls with simple buttons, no technical experience should be needed to use this system. 
+
+\noindent There will be three types of users for the system, which are set by the user: admin, standard, and guest. A node set to guest mode will only be able to receive calls, and will not receive video calls unless the other node authorizes it. This mode would be useful for a device placed outside, for example as a method of communicating with someone outside the front door. 
+
+\noindent In standard mode, a user can place and receive calls, including video calls (if accepted from the other node). This mode would be intended for rooms that guests in a house would be likely to frequent, such as a kitchen or living room. This is also the mode that new nodes would default to. 
+
+\noindent Admin mode allows a user to view video feed from any room and broadcast a message to the entire house (every node). This provides additional functionality for the system to double as a monitoring device for other rooms, for example as a baby monitor. Since this mode would allow complete access to video feeds and tracked locations of other people, a pre-set PIN would be required to ensure that the user is authorized.   
+
+\subsection{Constraints}
+The main hardware for this system should be built using a Raspberry Pi 3 for its affordability and processing power required for this project. The system should have its own mesh network separate from the public internet, and allow a new device node to be easily added into the system by most users.
+
+\noindent A possible constraint is that the mesh network might not be able to reliably stream video to a device multiple nodes away, because the more nodes the information has to hop over the more it degrades and the video becomes more stuttered and choppy at the receiving end of the video.
+
+\subsection{Assumptions and dependencies}
+Beginning this project, it is assumed that there are sufficient hardware resources to run a network from the nodes themselves rather than relying on a central device to do so. More generally, it is assumed that the Raspberry Pi 3 devices will be able to handle the overhead of the required software libraries for this project. The application that will eventually run on this hardware relies on these assumptions, and will have to be altered if any of them are incorrect. 
+
+\subsection{Apportioning of requirements}
+Ideally, the Home Intercom System would incorporate additional features to make the product more compelling to a greater range of users. For example, the ability to display calendar appointments and weather information by connecting securely to a device with internet connection. Another future requirement could enable the system to detect pets apart from people, allowing the user to view video feeds of rooms with pets in them. 
+
+\section{Specific requirements}
+
+\subsection{External interface requirements}
+\subsubsection{User interfaces}
+The user interface will run on a touch screen and will allow a user to operate the features of the system. Commands to the system will be sent by the user pressing buttons on the screen.
+
+\subsubsection{Hardware interfaces}
+Each node will require a camera, microphone, speaker, touch screen, power supply, a (built in) network card, and potentially other sensors. The software will interface with this hardware using USB and other I/O ports on each node. 
+
+\subsubsection{Software interfaces}
+The software must run as a native application. Compatible software systems necessary for encryption, video streaming, and networking should be able to run in the application. 
+
+\subsubsection{Communications interfaces}
+This system will rely on a mesh network to connect nodes to each other, and will not use any outside network. Data transmitted between nodes will be encrypted to ensure the privacy of users\textquotesingle{} data. 
+
+\subsection{System Features}
+
+\subsubsection{Ability to stream video and audio between any 2 nodes}
+\tab 3.2.1.1  Introduction/Purpose of feature \\
+\tab Streaming video and audio between nodes is the core of this project. It will allow users to communicate between \\ \tab rooms in a house. \\ 
+\tab 3.2.1.2  Stimulus/Response sequence \\
+\tab User prompts system to stream video/audio to another node. \\ 
+\tab 3.2.1.3  Associated functional requirements \\
+\tab \tab 3.2.1.3.1  Functioning mesh network \\
+\tab \tab 3.2.1.3.2  Method of encrypting video and audio \\
+\tab \tab 3.2.1.3.3  Hardware configured for appropriate I/O \\
+\tab \tab 3.2.1.3.4  Video/audio default configuration (i.e. to stream one or both) dependent on room
+
+\subsubsection{Functional user interface}
+\tab 3.2.2.1  Introduction/Purpose of feature \\
+\tab An interface will allow users to select which rooms to place calls to, choose between audio and video, and operate \\ \tab the other features of the system. \\
+\tab 3.2.2.2  Stimulus/Response sequence \\
+\tab User selects room to place call to, specifications for the call, and the node makes the call accordingly. \\
+\tab 3.2.2.3  Associated functional requirements \\
+\tab \tab 3.2.2.3.1  Application that can run natively \\
+\tab \tab 3.2.2.3.2  A physical switch to disable the camera \\
+\tab \tab 3.2.2.3.3  When a call is accepted, user can decide whether or not to stream video \\ 
+\tab \tab 3.2.2.3.4  Back-end for interface 
+
+\subsubsection{Ability to detect a person in a room}
+\tab 3.2.3.1  Introduction/Purpose of feature \\
+\tab Recognition of a person in the room will allow a node to automatically designate a room as occupied. \\
+\tab 3.2.3.2  Stimulus/Response sequence \\
+\tab Node recognizes person in the same room, logs their presence so that another user can place a call to that location. \\
+\tab 3.2.3.3  Associated functional requirements \\
+\tab \tab 3.2.3.3.1  Identify a person from another moving object \\
+\tab \tab \tab 3.2.3.3.1.1  Facial recognition \\
+\tab \tab \tab 3.2.3.3.1.2  Sensors (temperature, infrared) \\
+\tab \tab \tab 3.2.3.3.1.3  Image analysis \\ 
+\tab \tab 3.2.3.3.2  Store last known location of a person
+
+\subsubsection{Automatic launch of application}
+\tab 3.2.4.1  Introduction/Purpose of feature \\
+\tab Minimizing the difficulty of first-time setup will allow the system to be more usable. It will also prevent setup \\ \tab related errors that could be caused by a user incorrectly following directions. \\
+\tab 3.2.4.2  Stimulus/Response sequence \\
+\tab System is powered on, and proceeds to automatically set up as much as possible without user interference. \\
+\tab 3.2.4.3  Associated functional requirements \\
+\tab \tab 3.2.4.3.1  Startup/power-on script to initialize application \\
+\tab \tab 3.2.4.3.2  Application auto-launches, locks in 
+
+\subsubsection{Power and mountable configuration}
+\tab 3.2.5.1  Introduction/Purpose of feature \\
+\tab Each node will need to be wall mountable so that it is easily accessible. Each node will be powered through a \\ \tab wall socket as it is a convenient source that does not require more complex installation. \\
+\tab 3.2.5.2  Stimulus/Response sequence \\
+\tab Not applicable \\ 
+\tab 3.2.5.3  Associated functional requirements \\
+\tab \tab 3.2.5.3.1  Wall mountable \\
+\tab \tab 3.2.5.3.2  Powered through wall socket
+
+\subsection{Performance requirements}
+1. Ability to broadcast video and audio between nodes with minimal delay and latency (at most 10ms) \\
+2. Video at a minimum of 30 fps \\ %(verify against hardware) \\
+3. System responds to user input within 1 second
+
+\subsection{Design constraints}
+All software for this project will need to run on a small computer on each node. The software must run as a native application. Each node must be self-contained, that is the same wall-mounted object will hold the camera, microphone, speaker, touch screen, and any additional sensors.
+
+\subsection{Software system attributes}
+
+\subsubsection{Reliability and availability}
+After release, the system should be able to run with minimal setup and be able to perform necessary functions with minimal bugs. However, since this is a first prototype, the system does not need to be perfectly reliable.
+
+\subsubsection{Security}
+The following security requirements must be followed to protect users personal communications and data: \\
+1. Video and audio cannot be stored, only streamed \\
+2. Data transmitted between nodes must be encrypted so that if intercepted it could not be used \\
+3. The system cannot connect to an external network \\
+4. Admin/standard/guest modes described above must be enforced
+
+\subsubsection{Portability}
+Since each node will contain the software necessary to communicate with another, they should be completely independent systems. The system should be expandable simply by adding additional nodes with the same software. 
+
+\section{Gantt Chart}
+        \begin{ganttchart}{1}{20}
+			\gantttitle{Group 25}{20} \\
+			\gantttitlelist{1,...,10}{2} \\
+			\ganttbar{Documentation and Research}{1}{2} \\
+			\ganttbar{Benchmarking rPi3}{3}{4} \ganttnewline
+			\ganttbar{Implementing audio system}{5}{10} \ganttnewline
+			\ganttbar{Implementing camera system}{5}{10} \ganttnewline
+			\ganttbar{Implementing mesh network}{5}{10} \ganttnewline
+			\ganttbar{Implementing encryption}{11}{12} \ganttnewline
+			\ganttbar{Developing UI}{13}{14} \ganttnewline
+			\ganttbar{Compiling into application}{15}{16} \ganttnewline
+			\ganttbar{Verifying application on clean install/unit}{17}{18} \ganttnewline
+			\ganttbar{Expo/class presentation}{19}{20} \ganttnewline
+	\end{ganttchart}
+
+\end{document}
