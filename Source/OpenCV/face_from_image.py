@@ -1,3 +1,6 @@
+#Check an image for faces
+#Checks an image from Raspberry Pi Camera every second to see if a face is present
+
 import io
 import picamera
 import cv2
