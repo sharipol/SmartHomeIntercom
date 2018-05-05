@@ -1,6 +1,8 @@
 #!/bin/bash
 
-#When called this script will update file and share with other hosts
+#update other systems with current node's information
+#Purpose: Inform other systems of nodes status, will likely be replaced with other functionality before final product 
+
 roompath="/home/pi/roominfo"
 room=$1
 host=`hostname`
