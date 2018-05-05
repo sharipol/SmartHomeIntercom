@@ -1,3 +1,7 @@
+#face detection script using opencv libraries 
+#Purpose: Proof of concept person detection script, this version is not used in the final project 
+#Uses Raspberry Pi Camera for input, displays a video demonstrating face detection 
+
 import io
 import picamera
 import cv2
