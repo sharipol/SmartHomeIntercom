@@ -1,3 +1,7 @@
+//This is the main program for the the Smart Home Intercom System
+//Requirements met:
+//Video Streaming, Face Detection, Audio Streaming
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QProcess>
@@ -17,12 +21,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_ExitButton_clicked()
 {
+    //Starts up options menu
     Options = new options();
     Options->show();
 }
 
 void MainWindow::on_Video_page_pressed()
 {
+    //This kills and restarts openCV along with starting the video stream and
+    //audio stream
     QProcess *process = new QProcess(this);
     QString send = QString::fromLatin1("raspivid -vf -t 0 -h 720 -w 1080 -fps 25 -hf -b 2000000 -o - | gst-launch-1.0 -v fdsrc ! h264parse ! rtph264pay config-interval=1 pt=96 ! gdppay ! udpsink host=RECEIVING-PI-IP-ADDRESS port=5000");
     QString receive = QString::fromLatin1("gst-launch-1.0 -v tcpclientsrc host=169.254.99.124 port=5000 ! gdpdepay ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink sync=false");
@@ -38,6 +45,7 @@ void MainWindow::on_Video_page_pressed()
 
 void MainWindow::on_Audio_page_pressed()
 {
+    //This simply does audio and doesn't mess with OpenCV or Video Streaming
     //Copy on_video_page_pressed into here with code for just audio
     QProcess *process = new QProcess(this);
     QString send = QString::fromLatin1("rec -c 1 -t wav - | ssh <IP> play -");
