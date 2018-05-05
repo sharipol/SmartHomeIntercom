@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Initialize node on power on 
+#Purpose: Connect node to mesh network, start person recognition, and launch apppropriate application (setup if not done, else launch main app)
+
+
 start_batman(){
 	sudo modprobe batman-adv
 	sudo systemctl stop dhcpcd
