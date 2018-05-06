@@ -32,9 +32,11 @@ while True:
   #Look for faces
   faces = face_cascade.detectMultiScale(gray, 1.1, 5)
 
-  
-  print "Found "+str(len(faces))+" face(s)"
-
+  if len(faces) > 0:
+    print "Found "+str(len(faces))+" face(s)"
+    occupants = str(len(faces))
+    subprocess.call([sourcepath + 'update_nodes.sh', room, occupants])
+    
   #Draw a rectangle around every face, don't need this in final version but helps troubleshooting/testing
   for (x,y,w,h) in faces:
       cv2.rectangle(image,(x,y),(x+w,y+h),(255,0,0),2)
