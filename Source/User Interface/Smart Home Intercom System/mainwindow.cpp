@@ -46,11 +46,14 @@ void MainWindow::on_Video_page_pressed()
     
     QTimer *timer = new QTimer(this);
     
-    QString sendVideo = QString::fromLatin1("gst-launch-1.0 rpicamsrc bitrate=2097152 preview-opacity=255 preview-x=0 preview-y=0 preview-w=480 preview-h=270 fullscreen=false rotation=180 sensor-mode=5 annotation-mode=0x020c ! omxh264enc target-bitrate=2097152 control-rate=variable ! video/x-h264,width=480,height=270,framerate=25/1,profile=high ! h264parse ! udpsink host=192.168.0.2 port=5555");
+    //This is some sampler placeholder for a switch statement based on Option's room selection.
+    QString room = QString("192.168.0.2");
+        
+    QString sendVideo = QString::fromLatin1("gst-launch-1.0 rpicamsrc bitrate=2097152 preview-opacity=255 preview-x=0 preview-y=0 preview-w=480 preview-h=270 fullscreen=false rotation=180 sensor-mode=5 annotation-mode=0x020c ! omxh264enc target-bitrate=2097152 control-rate=variable ! video/x-h264,width=480,height=270,framerate=25/1,profile=high ! h264parse ! udpsink host=%1 port=5555").arg(room);
     QString receiveVideo = QString::fromLatin1("gst-launch-1.0 udpsrc port=5555 ! h264parse ! omxh264dec ! autovideosink");
     QString killCV =  QString::fromLatin1("kill $(ps axuww | grep \"python Desktop/OpenCV.py\" | awk \'{print $2}\' | sed -n 1p)");
     QString openCV = QString::fromLatin1("python Desktop/OpenCV.py");
-    QString sendAudio = QString::fromLatin1("gst-launch-1.0 alsasrc device=hw:1 ! audioconvert ! opusenc ! rtpopuspay ! udpsink host=192.168.0.2 port=5000");
+    QString sendAudio = QString::fromLatin1("gst-launch-1.0 alsasrc device=hw:1 ! audioconvert ! opusenc ! rtpopuspay ! udpsink host=%1 port=5000").arg(room);
     QString receiveAudio = QString::fromLatin1("gst-launch-1.0 udpsrc port=5000 caps=\"application/x-rtp\" ! rtpopusdepay ! opusdec ! autoaudiosink");
     QString killall = QString::fromLatin1("kill $(ps -a | grep gst | awk '{print $1}')");
     
