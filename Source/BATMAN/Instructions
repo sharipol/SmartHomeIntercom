@@ -18,8 +18,7 @@ sudo systemctl stop ssh
 sudo ip link set wlan0 down
 sudo ifconfig wlan0 mtu 1532
 sudo iwconfig wlan0 mode ad-hoc
-sudo iwconfig wlan0 essid my-mesh-network
-sudo iwconfig wlan0 key s:NetworkSecured
+sudo iwconfig wlan0 essid hamtaro
 sudo iwconfig wlan0 ap any
 sudo iwconfig wlan0 channel 8
 sleep 1s
@@ -39,6 +38,15 @@ sudo systemctl start ssh
 #
 #interface wlan0
 #static ip_address=192.168.1.1
+
+#To encrypt the network, wpa_supplicant must be modified to include the essid and a psk
+#appending:
+#network={
+#  ssid="hamtaro"
+#  psk="worlddomination
+#}
+#to etc/wpa_supplicant/wpa_supplicant.conf is required for encryption. This is possible
+#using a bash script or manually.
 
 #To ping between devices either use DHCP assigned IP or sudo batctl ping <MAC>.
 #Because of DHCP we will have to use batctl to get IP and send to other devices
