@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Setup</class>
+ <widget class="QMainWindow" name="Setup">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>688</width>
+    <height>375</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Setup</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="accept">
+    <property name="geometry">
+     <rect>
+      <x>470</x>
+      <y>260</y>
+      <width>181</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Accept</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="Room">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>491</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>Living Room</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Kitchen</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Hallway</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Garage</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Master Bedroom</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Office</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bedroom 1</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Bedroom 2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Dining Room</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Porch</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="guestbox">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>140</y>
+      <width>179</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>     Guest Only</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>40</width>
+      <height>40</height>
+     </size>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

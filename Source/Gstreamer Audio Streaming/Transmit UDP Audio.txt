@@ -1,0 +1,1 @@
+gst-launch-1.0 alsasrc device=hw:1 ! audioconvert ! opusenc ! rtpopuspay ! udpsink host=RECEIVING-PI-IP-ADDRESS port=YOUR-CHOSEN-PORT

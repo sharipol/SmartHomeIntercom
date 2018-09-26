@@ -1,0 +1,20 @@
+#Follow these instructions to have the base User Interface and Options menu display.
+
+#TODO:
+#Figure out passing arguments through sudo to command line so we can control brightness and volume
+#Get raspivid specifically contained to its own container (and therefore gstreamer).
+#Figure out audio stuff
+#Make embedded
+
+Install raspivid (should be preinstalled) and Qt 4.8.
+
+Copy all the files in User Interface / Smart Home Intercom System to a folder.
+
+Go to the folder they are contained.
+
+Run:
+qmake -project
+qmake
+make
+
+Run the resultant file (will be in the folder with a paper airplane as the icon).

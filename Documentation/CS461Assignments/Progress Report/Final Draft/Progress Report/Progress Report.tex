@@ -1,0 +1,313 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{pgfgantt}
+
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Team 25}
+\def \CapstoneTeamNumber{		25}
+\def \GroupMemberOne{			Lazar Sharipoff}
+\def \GroupMemberTwo{			Jordan Davis}
+\def \GroupMemberThree{			Glen Anderson}
+\def \CapstoneProjectName{		Smart Home Intercom System}
+\def \CapstoneSponsorCompany{	Oregon State EECS}
+\def \CapstoneSponsorPerson{		D. Kevin McGrath}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		%Problem Statement
+				%Requirements Document
+				%Technology Review
+				%Design Document
+				Progress Report
+				}
+\newcommand\tab[1][1cm]{\hspace*{#1}}			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+\pagenumbering{gobble}
+\begin{singlespace}
+	%\includegraphics[height=4cm]{coe_v_spot1}
+\hfill
+% 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+%\includegraphics[height=4cm]{CompanyLogo}
+\par\vspace{.2in}
+\centering
+\scshape{
+\huge CS Capstone \DocType \par
+{\large\today}\par
+\vspace{.5in}
+\textbf{\Huge\CapstoneProjectName}\par
+\vfill
+{\large Prepared for}\par
+\Huge \CapstoneSponsorCompany\par
+\vspace{5pt}
+{\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+{\large Prepared by }\par
+Group\CapstoneTeamNumber\par
+% 5. comment out the line below this one if you do not wish to name your team
+\CapstoneTeamName\par
+\vspace{5pt}
+{\Large
+\NameSigPair{\GroupMemberOne}\par
+\NameSigPair{\GroupMemberTwo}\par
+\NameSigPair{\GroupMemberThree}\par
+}
+\vspace{20pt}
+}
+\begin{abstract}
+% 6. Fill in your abstract
+	This document explains the progress that has been made for the Smart Home Intercom Project as of the end of fall term 2017. Specifically, it provides a detailed review of each week including the work that was done as well as a summary of the progress that has been made. 
+\end{abstract}
+\end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+
+% 8. now you write!
+\section{Purpose}
+This project is intended as a proof of concept for a smart home intercom system. It would allow users to communicate between rooms securely, using audio and video. The system would also include features to make such communication more convenient, such as tracking which room a person was last in and serving to monitor rooms in certain modes. 
+
+\section{Progress}
+So far, the project has consisted of outlining specific requirements, creating a design of the final prototype, and researching associated technologies. As a group, the Smart Home Intercom System team created a problem statement to clarify the purpose of the project, a requirements document outlining what the final prototype would have to have, a technology review that investigates the best options to solve technical problems associated with the project, and a design document that discusses how each of these technical problems can be specifically solved.  
+
+With most of the research work done, development can begin over winter break and continue through winter term. Most of the work next term will focus on making a functional prototype of the system and testing it in accordance with the plans in the documents.
+
+\section{Challenges}
+We ran into few hurdles this term because the instructor for the class is also our client. The reason this was beneficial is that when discussing topics like project requirements with him, we would get specific responses that were put (to some extent) in the context of the class. This made it very clear as to what needed to be implemented for this project to be a success. 
+
+However, we did run into some problems with scheduling meetings and times to work, both within our group and with our client. In order to correct this for winter term, we should plan consistent meeting times and provide advance notification (if possible) if a meeting needs to be canceled or a member cannot attend. 
+
+\section{Goals}
+Over winter break, each group member will work on developing parts of the project so that when winter term starts there will be a clear idea of what needs to get done and any issues group members ran in to. Glen will work on implementing person detection, Lazar will work on encryption and video streaming, and Jordan will work on network implementation and a user interface. 
+
+By the end of winter term, the group goal is to have a working prototype of the Smart Home Intercom System so that the majority of development is done before spring term. 
+
+\section{Retrospective}
+This section describes what was done each week during fall term, by group member. During this term, each group member contributed to researching technologies associated with the project and documenting these discoveries to aid during winter term when development begins. 
+
+%For this part, follow format in assignment description
+Positives
+
+-Generally proactive about completing assignments
+-Got everything done by the end of the term 
+Deltas
+
+-Major assignments need to be started sooner
+-Need to make transition from research to development
+-Scheduling was difficult, needs to be better planned
+Actions
+
+-Start major assignments as early as possible
+-Winter term will focus on development, begin early (during winter break)
+-Schedule meetings consistently and in advance, try to notify in advance if members will be late/unable to attend
+
+
+\subsection{Week 1}
+\subsubsection{Lazar Sharipoff}
+Attended first class on Thursday
+
+
+\subsubsection{Jordan Davis}
+Hit the ground running. Had to turn in a resume Tuesday and submit project bids by Friday along with writing a biography. Biography is (currently) heavy-handed towards my number one project, but will update as the quarter goes.
+
+\subsubsection{Glen Anderson}
+Looked at the list of projects and selected choices. 
+
+
+\subsection{Week 2}
+\subsubsection{Lazar Sharipoff}
+Created the OneNote and shared it with the instructors
+\newline Created my personal biography and put on the first page of my OneNote
+\newline Assigned to project:
+\newline \tab Smart Home Intercom System
+\newline Client:
+\newline \tab D Kevin McGrath
+\newline Assigned Teammates:
+\newline \tab Jordan Davis
+\newline \tab Glenn Anderson
+
+ 
+\subsubsection{Jordan Davis}
+Assigned "Smart Home Intercom System" with Kevin McGrath as client. Met via WebEx on Friday, notes can be viewed in 2.5. Was a very informative week and went from something that could be viewed as broad as a field to something as specific as a cow in said field. There is still some wiggle room, but the end goal and hardware has been specified.
+ 
+\subsubsection{Glen Anderson}
+Met with client to discuss details of the project to get general information about the project. Got some insight as to what the requirements are as well. 
+
+
+\subsection{Week 3}
+\subsubsection{Lazar Sharipoff}
+Met with our TA for the first time
+\newline Finished the personal rough draft of the problem statement
+
+
+\subsubsection{Jordan Davis}
+Week 3 was a dud, did some research. Stressed the problem statement (to the extent of not getting it done) and went out as a group and got to know each other. Overall amount of work done: 10% but team building worked out to make the week not a complete waste.
+
+
+\subsubsection{Glen Anderson}
+Met with client to discuss requirements and to get a better understanding of the project, began writing the final draft of the problem statement. Final draft of problem statement will involve a high-level view of project, including a proposed solution that, on a high level, explains how we intend to implement the project and what challenges we will have to overcome.
+
+
+\subsection{Week 4}
+\subsubsection{Lazar Sharipoff}
+Finished the final draft of our group problem statement
+\newline Sent our problem statement to the client for verification
+\newline Need to start researching technology for the project like hardware and software to get ahead
+\newline Have to organize the github structure so that we can use it for version control of our group, and personal drafts of documents
+
+
+\subsubsection{Jordan Davis}
+Met with Kevin on Friday to discuss requirements document (and clarified things). Finished Problem Statement Thursday as a group. Need to submit rough draft.
+
+
+\subsubsection{Glen Anderson}
+Organized GitHub repo to be understandable and worked on a rough draft of the problem statement for the group submission.
+ Group problem statement turned in, met with client to further discuss requirements and go over recommended devices and software to use to make project work. For group problem statement, came up with specific metrics to track our progress and got the three main sections done, including what challenges will need to be overcome for each specific requirement.  
+
+
+\subsection{Week 5}
+\subsubsection{Lazar Sharipoff}
+Requirements were made clear from the client and are in the meeting notes
+\newline Looked up what video encryption is and what kind we'd most likely use.
+\newline Created a note file of Video Encryption Notes that has some info and a guide that we could possibly use to create an encrypted streamable DASH video
+\newline Possible sources for video encryption are:
+\newline \tab SRT Alliance: http://www.srtalliance.org/
+\newline \tab DASH: http://dashif.org/software/
+\newline rPi researched by Jordan
+\newline Organized the github repo so that we can use it for document/project version control
+
+
+\subsubsection{Jordan Davis}
+Was a great week for searching things and just making sure everything was down and where it needed to be at a level we could all attain and grasped. Met and fully discussed requirements document Thursday and threw together a rough draft Friday night. Requirements doc needs to get done further but it is a very good start, I feel.
+
+
+\subsubsection{Glen Anderson}
+Continued working on first draft of requirements document. Explored third-party libraries and applications that could be useful for parts of our project. Met with client to discuss requirements in more detail, as well as useful libraries and hardware for the project. Finished first draft of requirements document.
+
+
+\subsection{Week 6}
+\subsubsection{Lazar Sharipoff}
+Finished final draft of requirements document
+\newline Sent requirements document to client for verification
+
+
+\subsubsection{Jordan Davis}
+After the rush to finish the rough draft of the requirements document last Friday, the final draft went much smoother. There are some things Kevin knocked on it that will required a few minor changes -- but nothing major. Overall a pretty solid work week and definitely allowed for some group dynamic to shine through when trying to push out the final draft as fast as possible.
+
+
+\subsubsection{Glen Anderson}
+Continued exploring libraries for encryption and mesh networking. Received hardware for the project from Kevin. Got feedback about what to change in requirements document.
+Worked on requirements document, finished all 3 sections and got this turned in for client approval. Met with client (notes below) about the requirements document to get feedback on what to change.
+
+\subsection{Week 7}
+\subsubsection{Lazar Sharipoff}
+Assigned pieces of tech to be researched by each team member
+\newline \tab Jordan:
+\newline \tab \tab Mesh networking
+\newline \tab \tab User interface technologies
+\newline \tab \tab Flavor Operating systems
+\newline \tab Glenn:
+\newline \tab \tab Audio I/O HW-
+\newline \tab \tab Databases/storage mySQ
+\newline \tab \tab Person detection
+\newline \tab Lazar:
+\newline \tab \tab Video display/camera/software
+\newline \tab \tab Separate hw/sw
+\newline \tab \tab Encryption libraries		
+\newline Researched video display hardware, specifically screens.
+\newline Settled on 2.4" screen, 7" screen, and 10.1" screen
+\newline \tab 2.4" Screen Link:
+\newline \tab \tab https://www.element14.com/community/docs/DOC-77883?ICID=rpiaccsy-access-products
+\newline \tab 7" Screen Link:
+\newline \tab \tab https://www.element14.com/community/docs/DOC-78156?ICID=rpiaccsy-access-products
+\newline \tab 10.1" Screen Link:
+\newline \tab \tab https://www.amazon.com/Waveshare-10-1inch-HDMI-LCD-Capacitive/dp/B01CU7VX5Q
+\newline  Researched video display software, specifically video streaming platforms. \newline Settled on RPi-Cam-Web-Interface, Stream-m, and VLC
+\newline \tab RPi-Cam-Web-Interface Link:
+\newline \tab \tab https://elinux.org/RPi-Cam-Web-Interface
+\newline \tab Stream-m Link:
+\newline \tab \tab https://github.com/vbence/stream-m
+\newline \tab VLC Link:
+\newline \tab \tab https://www.videolan.org/vlc	
+\newline Meeting with Client canceled due to Veterans Day observation
+
+
+\subsubsection{Jordan Davis}
+A more productive week than described in my progress, we met as a group Tuesday to format the req. doc. as needed and then made a list of things pertinent to our system that should be researched and each member picked (draft style). Research will definitely need to be done over the weekend, but an outline has been made for this.
+
+
+\subsubsection{Glen Anderson}
+Reviewed requirements document with group and turned it back in for client approval. Worked with group to decide who would be assigned what technologies for the tech review document. Was assigned audio I/O, person detection, and data storage for my three technologies to review. After researching some, person detection looks like it will involve facial recognition with OpenCV or another open source library and/or the use of an IR camera to notice when someone enters a room. Made all of the changes to the requirements document that the client requested. 
+
+\subsection{Week 8}
+\subsubsection{Lazar Sharipoff}
+Researched encryption libraries and settled on, NaCl (Salt), Salsa20, and OpenSSL.
+\newline \tab NaCl (Salt) Link:
+\newline \tab \tab https://nacl.cr.yp.to/index.html
+\newline \tab Salsa20 Link:
+\newline \tab \tab https://www.cryptopp.com/wiki/Salsa20
+\newline \tab OPenSSL Link:
+\newline \tab \tab https://www.openssl.org/
+\newline Wrote the personal rough draft of the tech review document
+\newline Group final draft submission of tech review document was changed to a person submission of the document
+\newline Client canceled meeting due to Jordan not being able to attend
+
+
+\subsubsection{Jordan Davis}
+This week went surprisingly well and efficiently given my own personal timetable and things going on. The main progress was research into the problems, I feel like the research done for the technical review document is research I will be turning to while trying to implement the actual system we are designing onto rPi. The conclusions of the tech review did surprise me somewhat -- primarily the fact that Windows IoT even exists. Unfortunately it is not compatible with GPU acceleration on the rPi which means that the Pi Camera v2 (IR) will not work with Windows IoT. It would only make development a little bit more efficient, so all-in-all it is not worthwhile attempting to change so many factors. The main progress was learning of QT's potential. The opensource version (4.8) had nearly every package that we need in order to make our program a success. Between multimedia streaming and its own networking protocols/access it can streamline a majority of what we are doing. After checking in with group members it appears as though some conclusions were changed upon their research as well. The only things I am uncertain of at this point is that the requirement in the specification of our project says "point-to-point or mesh network" and while BATMAN can be run in conjunction with QT's own systems, I need to get complete clarification. Mesh networks mainly have a benefit of being able to add in nodes on the fly or being headless (no IP addresses) but I don't think that overhead would hurt us. What will hurt us is the increasing of hops due to it decreasing quality and increasing latency. All together though, was a super eye opening week.
+
+
+\subsubsection{Glen Anderson}
+Worked on tech review document, turned in a rough draft on Tuesday and got peer feedback from this. Met with TA and discussed new requirements for tech review document and got recommendations for this. Also got feedback about weekly summaries, and were informed that they should be descriptive and specific. Since client meeting was canceled, may still need to ask for clarification about why a mesh network is preferred over other secure options (although this will come up when we submit tech reviews for approval). Met with group and briefly discussed our findings for the tech review to make sure we were looking into options we had previously discussed and new options that might suit us better. 
+
+\subsection{Week 9}
+\subsubsection{Lazar Sharipoff}
+Client and TA meeting canceled due to Thanksgiving Day observed
+\newline Finished up final draft of personal technical review document
+
+
+\subsubsection{Jordan Davis}
+Relatively slow week due to holidays. Managed to get technology review in on time and created full bibliography that can be used and/or referenced later in other documents. Went through documents that will be due prior to the end of the quarter and texted teammate's regarding them and what we need to do together. Expecting further clarification on Tuesday, but for now it is sufficient just to be aware of the video review that we need to do. My main goal for next week is to get SD cards from Kevin to be able to install raspbian on them and have hardware available to us to be able to test amongst ourselves. I prepped documents as I saw them being described, but will hopefully receive verification on that Tuesday as well. The tech review did surprise me somewhat in the technologies that I looked at. If it was reasonable within time constraints, Windows IoT would likely be better to use than raspbian given its ability to be compatible with certain things and its availability of similar projects online. The major downside of Windows IoT is the camera since it cannot use the rPi camera and would require either a USB camera (potential brownout) or secondary powered camera. Still, I think the conclusion is clear and where we should be: rPi3, Raspbian, rPi IR camera, Qt 4.8 interface, batman (for mesh network if fully required), Qt 4.8 network modules for the network components. Ultimately it should come together rather easily and it's just when to pull the rug out from underneath itself about the network (that I still need to ask Kevin about). 
+
+
+\subsubsection{Glen Anderson}
+Worked on rough draft of design document. Looked at each piece of my portion of the technology review and made design choices based on client requirements and the purpose of the project, and wrote an outline of what the design document should include for these technologies. No TA or client meeting, Thanksgiving week. 
+
+\subsection{Week 10}
+\subsubsection{Lazar Sharipoff}
+Wrote up the rough draft of the design document, got the general outline, and person section written
+\newline Met up with Jordan and Glenn and got the general outline for our final report and presentation
+\newline Wrote up the final draft of the design document
+\newline Got a rough draft going of the final report
+\newline Worked on the final presentation, got slides set up , and did a few practice runs of the presentation
+
+
+\subsubsection{Jordan Davis}
+Class Tuesday was an introduction to the approaches of these documents with Thursday being a lab day where we could see examples. I did not fully grasp the documents so I met with Kirsten Friday after our meeting with Kevin. The meeting with Kevin was our first since the week prior to the technology review and as such had a bit to go over. Ultimately it appears as though we are heading in the right direction. We will need to draw up a detailed development diagram due to the order that some things might be going in. For instance, I would prefer using Stretch Lite as opposed to Stretch for our operating system. Given this our development might need to start with the operating system. The meeting with Kirsten hammered down what these documents should be. Submitted design document when it was due and will be working on Progress Report tomorrow (Dec. 2).
+ 
+As for our project, I feel that all of our ideas warrant experimentation through to implementation. We plan on working over the break on our individual components to see what works and what doesn't.
+
+
+\subsubsection{Glen Anderson}
+
+Met with TA on Thursday and discussed plan for Winter Break. By the end of winter break, I should be done implementing a rough form of person detection for the project. Since it won't be much extra work to make a file system for logging where a person was last, I can get this done over break as well. Worked on design document, wrote the introduction, conclusion, scope, purpose, and design stakeholders and their concerns sections in addition to sections concerning my three technology pieces. 
+
+
+\end{document}
+

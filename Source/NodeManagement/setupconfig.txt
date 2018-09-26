@@ -1,0 +1,2 @@
+SETUP_DONE=TRUE
+kitchen 10.16.87.147  b8:27:eb:c7:0a:58
